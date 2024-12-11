@@ -39,9 +39,9 @@ namespace DAL_.ObjectDAL
                     ChanDoanVaoVien.Add(new ChanDoanVaoVienDTO()
                     {
                         BenhChinh = !reader.IsDBNull(0) ? reader.GetString(0) : "",
-                        BenhPhu = !reader.IsDBNull(1) ? reader.GetString(1) : "",
+                        BenhPhu =  "",
                         ICDBenhChinh = !reader.IsDBNull(2) ? reader.GetString(2) : "",
-                        ICDBenhPhu = !reader.IsDBNull(3) ? reader.GetString(3) : ""
+                        ICDBenhPhu =  ""
                     });
                 }
             }

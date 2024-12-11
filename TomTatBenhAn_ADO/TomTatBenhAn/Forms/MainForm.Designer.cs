@@ -51,11 +51,11 @@
             MaYTe_checkbox = new CheckBox();
             SoBenhAn_checkbox = new CheckBox();
             menuStrip1 = new MenuStrip();
-            hướngDẫnSửDụngToolStripMenuItem = new ToolStripMenuItem();
-            thôngTinPhiênBảnToolStripMenuItem = new ToolStripMenuItem();
             kiểmTraCậpNhậtToolStripMenuItem = new ToolStripMenuItem();
             kToolStripMenuItem = new ToolStripMenuItem();
             groupBox4 = new GroupBox();
+            orderReport = new TextBox();
+            label7 = new Label();
             editReportBtn = new Button();
             groupBox6 = new GroupBox();
             tabControl1 = new TabControl();
@@ -340,7 +340,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { hướngDẫnSửDụngToolStripMenuItem, thôngTinPhiênBảnToolStripMenuItem, kiểmTraCậpNhậtToolStripMenuItem, kToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { kiểmTraCậpNhậtToolStripMenuItem, kToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(6, 3, 0, 3);
@@ -348,23 +348,12 @@
             menuStrip1.TabIndex = 3;
             menuStrip1.Text = "menuStrip1";
             // 
-            // hướngDẫnSửDụngToolStripMenuItem
-            // 
-            hướngDẫnSửDụngToolStripMenuItem.Name = "hướngDẫnSửDụngToolStripMenuItem";
-            hướngDẫnSửDụngToolStripMenuItem.Size = new Size(155, 24);
-            hướngDẫnSửDụngToolStripMenuItem.Text = "Hướng dẫn sử dụng";
-            // 
-            // thôngTinPhiênBảnToolStripMenuItem
-            // 
-            thôngTinPhiênBảnToolStripMenuItem.Name = "thôngTinPhiênBảnToolStripMenuItem";
-            thôngTinPhiênBảnToolStripMenuItem.Size = new Size(156, 24);
-            thôngTinPhiênBảnToolStripMenuItem.Text = "Thông tin phiên bản";
-            // 
             // kiểmTraCậpNhậtToolStripMenuItem
             // 
             kiểmTraCậpNhậtToolStripMenuItem.Name = "kiểmTraCậpNhậtToolStripMenuItem";
             kiểmTraCậpNhậtToolStripMenuItem.Size = new Size(140, 24);
             kiểmTraCậpNhậtToolStripMenuItem.Text = "Kiểm tra cập nhật";
+            kiểmTraCậpNhậtToolStripMenuItem.Click += kiểmTraCậpNhậtToolStripMenuItem_Click;
             // 
             // kToolStripMenuItem
             // 
@@ -375,6 +364,8 @@
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(orderReport);
+            groupBox4.Controls.Add(label7);
             groupBox4.Controls.Add(editReportBtn);
             groupBox4.Controls.Add(groupBox6);
             groupBox4.Controls.Add(groupBox5);
@@ -388,13 +379,30 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Kết quả";
             // 
+            // orderReport
+            // 
+            orderReport.Location = new Point(636, 41);
+            orderReport.Name = "orderReport";
+            orderReport.Size = new Size(159, 27);
+            orderReport.TabIndex = 6;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(481, 40);
+            label7.Name = "label7";
+            label7.Size = new Size(152, 25);
+            label7.TabIndex = 5;
+            label7.Text = "Nhập số báo cáo:";
+            // 
             // editReportBtn
             // 
             editReportBtn.BackColor = SystemColors.ScrollBar;
             editReportBtn.Enabled = false;
             editReportBtn.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             editReportBtn.ForeColor = SystemColors.ControlText;
-            editReportBtn.Location = new Point(495, 31);
+            editReportBtn.Location = new Point(820, 33);
             editReportBtn.Name = "editReportBtn";
             editReportBtn.Size = new Size(280, 43);
             editReportBtn.TabIndex = 3;
@@ -859,6 +867,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tóm tắt hồ sơ bệnh án";
             FormClosed += MainForm_FormClosed;
+            KeyDown += MainForm_KeyDown;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox3.ResumeLayout(false);
@@ -893,8 +902,6 @@
         private GroupBox groupBox1;
         private GroupBox groupBox3;
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem hướngDẫnSửDụngToolStripMenuItem;
-        private ToolStripMenuItem thôngTinPhiênBảnToolStripMenuItem;
         private ToolStripMenuItem kiểmTraCậpNhậtToolStripMenuItem;
         private Label label3;
         private Label label2;
@@ -961,5 +968,7 @@
         private Label TTNBlbl;
         private Label TienSuBenhlbl;
         private Label ppDieuTrilbl;
+        private TextBox orderReport;
+        private Label label7;
     }
 }

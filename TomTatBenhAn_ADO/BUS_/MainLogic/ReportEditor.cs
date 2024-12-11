@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Diagnostics;
-using word = Microsoft.Office.Interop.Word;
+﻿using word = Microsoft.Office.Interop.Word;
 using System.Runtime.InteropServices;
+
+
 
 namespace BUS_.MainLogic
 {
@@ -15,11 +10,11 @@ namespace BUS_.MainLogic
         private static ReportEditor instance;
         public static ReportEditor Instance
         {
-            get 
+            get
             {
-                if(instance == null)
+                if (instance == null)
                 {
-                    instance = new ReportEditor();  
+                    instance = new ReportEditor();
                 }
                 return instance;
             }
@@ -27,7 +22,7 @@ namespace BUS_.MainLogic
         private ReportEditor() { }
 
         // Hàm tạo bản sao template và đổ dữ liệu ra file word đó
-        public void GenFileAndPrintData(string filePath, Dictionary<string, string> allData)
+        public async void GenFileAndPrintData(string filePath, Dictionary<string, string> allData)
         {
             try
             {
@@ -46,14 +41,15 @@ namespace BUS_.MainLogic
                 }
 
                 // Tạo đường dẫn file tạm
-                string tempFilePath = Path.Combine(folderPath, $"{allData["BN_MaYTe"]}_HoSoTomTat.doc");
+                string tempFilePath = Path.Combine(folderPath, $"{allData["BN_SoBenhAn"]}_HoSoTomTat.doc");
 
                 // Sao chép file template vào file tạm
                 File.Copy(filePath, tempFilePath, overwrite: true);
 
                 // Tiếp tục xử lý file tại đây...
                 printDataToWord(tempFilePath, allData);
-
+                
+                await Task.Delay(2000);
                 OpenWordDocument(tempFilePath);
 
                 Console.WriteLine("Báo cáo đã được tạo thành công tại: " + tempFilePath);
@@ -105,22 +101,66 @@ namespace BUS_.MainLogic
 
         private void ReplaceBookmarkText(word.Document document, string bookmarkName, string newText)
         {
-            if (document.Bookmarks.Exists(bookmarkName))
+
+            //Xử lý trường hợp "BN_KetQuaDieuTri"
+            if (bookmarkName == "BN_KetQuaDieuTri")
+            {
+                var resultBookmarkMapping = new Dictionary<string, string>
+                {
+                    { "Khỏi", "BN_Khoi" },
+                    { "Đỡ", "BN_Do" },
+                    { "Không thay đổi", "BN_KhongThayDoi" },
+                    { "Tiên lượng nặng xin về", "BN_NangHonXinVe" },
+                    { "Tử vong", "BN_TuVong" },
+                    { "Chưa xác định", "BN_ChuaXacDinh" },
+                    { "Nặng hơn", "BN_NangHon" }
+                };
+
+                foreach (var item in resultBookmarkMapping)
+                {
+                    foreach (word.ContentControl control in document.ContentControls)
+                    {
+                        // Kiểm tra nếu Content Control là checkbox và có tag khớp
+                        if (control.Type == word.WdContentControlType.wdContentControlCheckBox && control.Tag == item.Value && item.Key == newText)
+                        {
+                            // Đánh dấu checkbox
+                            control.Checked = true; // Đánh dấu
+                        }
+                    }
+                }
+                return;
+            }
+
+            // Xử lý trường hợp bookmark "BN_Name"
+            if (bookmarkName == "BN_Name")
             {
                 var bookmark = document.Bookmarks[bookmarkName];
                 var range = bookmark.Range;
-
-                // Thay thế nội dung trong bookmark
                 range.Text = newText;
                 range.Font.Name = "Times New Roman";
-                range.Font.Size = 13;
-                range.Font.Bold = 0;
-
-
+                range.Font.Size = 13.5f;
+                range.Font.Bold = 1;
                 // Đặt lại bookmark sau khi thay thế
                 document.Bookmarks.Add(bookmarkName, range);
+                return;
+            }
+            // Xử lý các bookmark khác
+            else 
+            {
+                var genericBookmark = document.Bookmarks[bookmarkName];
+                var genericRange = genericBookmark.Range;
+                genericRange.Text = newText;
+                genericRange.Font.Name = "Times New Roman";
+                genericRange.Font.Size = 13.5f;
+                genericRange.Font.Bold = 0;
+
+                // Đặt lại bookmark sau khi thay thế
+                document.Bookmarks.Add(bookmarkName, genericRange);
+                return;
             }
         }
+
+
 
         private void OpenWordDocument(string filePath)
         {

@@ -5,15 +5,13 @@ const cors = require('cors');
 const logger = require('morgan');
 
 // Kết nối với MongoDB
-mongoose.connect('mongodb+srv://sman888123:d0nRcNi0wwOUIbfc@cluster0.wdpkn.mongodb.net/', {
+mongoose.connect('mongodb://localhost/hospital', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => console.log('Connected to MongoDB'));
-
-
 
 // Khởi tạo ứng dụng Express
 const app = express();
@@ -24,6 +22,9 @@ app.use(logger('dev'));
 // Import routes
 const userRoutes = require('./routes/userRoutes');
 app.use('/api/users', userRoutes);
+
+const versionRoutes = require('./routes/versionRoutes');
+app.use('/api/version', versionRoutes);
 
 // Serve dashboard
 app.use(express.static(__dirname));

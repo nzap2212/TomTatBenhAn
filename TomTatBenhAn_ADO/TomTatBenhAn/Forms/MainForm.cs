@@ -1,7 +1,7 @@
 ﻿using BUS_.MainLogic;
-using BUS_.System;
 using Services;
-using System.ComponentModel;
+using System.Diagnostics;
+using System.Reflection;
 using UI.Forms;
 
 namespace UI
@@ -25,6 +25,7 @@ namespace UI
             }
             this.Load += async (s, e) => await UpdateUI.Instance.Mainform_load(server_status, ReadFileEnv.Instance.envData);
             this.Load += async (s, e) => await UpdateUI.Instance.PrintUserData(user_txb, department_txb, usage_txb);
+            this.KeyPreview = true;
         }
 
         public static MainForm Instance
@@ -102,25 +103,27 @@ namespace UI
         }
 
 
+
         // Hàm xử lý sự kiện click button tóm tắt
         private async void TomTat_btn_Click(object sender, EventArgs e)
         {
             UpdateUI.Instance.AllData.Clear();
-            try
+
+            // xử lý số bệnh án
+            if (SoBenhAn_checkbox.Checked)
             {
-                // xử lý số bệnh án
-                if (SoBenhAn_checkbox.Checked)
+                if (ValidateInput.Instance.ValidateInputData(SoBenhAn_input.Name, SoBenhAn_input.Text))
                 {
-                    if (ValidateInput.Instance.ValidateInputData(SoBenhAn_input.Name, SoBenhAn_input.Text))
+                    Lydovaovienlbl.Text = string.Empty;
+                    TomTatInfolbl.Text = string.Empty;
+                    KQXNlbl.Text = string.Empty;
+                    TTNBlbl.Text = string.Empty;
+                    TienSuBenhlbl.Text = string.Empty;
+                    ppDieuTrilbl.Text = string.Empty;
+                    SoBenhAnlst.Enabled = false;
+                    using (WaitForm waitform = WaitForm.Instance)
                     {
-                        Lydovaovienlbl.Text = string.Empty;
-                        TomTatInfolbl.Text = string.Empty;
-                        KQXNlbl.Text = string.Empty;
-                        TTNBlbl.Text = string.Empty;
-                        TienSuBenhlbl.Text = string.Empty;
-                        ppDieuTrilbl.Text = string.Empty;
-                        SoBenhAnlst.Enabled = false;
-                        using (WaitForm waitform = WaitForm.Instance)
+                        try
                         {
                             waitform.Show();
                             editReportBtn.Enabled = false;
@@ -145,33 +148,34 @@ namespace UI
                             editReportBtn.Enabled = true;
                             waitform.Close();
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Số bệnh án không hợp lệ, vui lòng nhập lại!!!");
+                        catch (Exception ex)
+                        {
+                            waitform.Close();
+                            MessageBox.Show(ex.Message);
+                        }
                     }
                 }
-                // xử lý mã y tế
-                else if (MaYTe_checkbox.Checked)
+                else
                 {
-                    if (ValidateInput.Instance.ValidateInputData(MaYTe_input.Name, MaYTe_input.Text))
-                    {
-                        UpdateUI.Instance.PrintlistSoBenhAn(MaYTe_input.Text, SoBenhAnlst);
-                        if (SoBenhAnlst.Items.Count > 0)
-                        {
-                            SoBenhAnlst.SelectedIndex = 0; // Chọn phần tử đầu tiên (index = 0)
-                        }
-                        SoBenhAnlst.Enabled = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Mã Y Tế không hợp lệ!!!");
-                    }
+                    MessageBox.Show("Số bệnh án không hợp lệ, vui lòng nhập lại!!!");
                 }
             }
-            catch (Exception ex)
+            // xử lý mã y tế
+            else if (MaYTe_checkbox.Checked)
             {
-                MessageBox.Show(ex.Message);
+                if (ValidateInput.Instance.ValidateInputData(MaYTe_input.Name, MaYTe_input.Text))
+                {
+                    UpdateUI.Instance.PrintlistSoBenhAn(MaYTe_input.Text, SoBenhAnlst);
+                    if (SoBenhAnlst.Items.Count > 0)
+                    {
+                        SoBenhAnlst.SelectedIndex = 0; // Chọn phần tử đầu tiên (index = 0)
+                    }
+                    SoBenhAnlst.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Mã Y Tế không hợp lệ!!!");
+                }
             }
         }
 
@@ -226,6 +230,7 @@ namespace UI
 
                 string currentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
                 string filePath = Path.Combine(currentDirectory, "TemplateTomTat.doc");
+                UpdateUI.Instance.AllData["BN_orderReport"] = orderReport.Text;
                 ReportEditor.Instance.GenFileAndPrintData(filePath, UpdateUI.Instance.AllData);
             }
             catch (Exception ex)
@@ -238,6 +243,75 @@ namespace UI
         private void TomTatInfolbl_SizeChanged(object sender, EventArgs e)
         {
             TienSuBenhlbl.Location = new Point(TomTatInfolbl.Location.X, TomTatInfolbl.Location.Y + TomTatInfolbl.Height + 5);
+        }
+
+        //Hàm kiểm tra thông tin cập nhật và tiến hành cập nhật ứng dụng
+
+        private string UpdateURL = "http://api-hospital.zigisoft.com/api/version/check";
+        private async void kiểmTraCậpNhậtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var waitForm = WaitForm.Instance; // Lấy instance
+
+            try
+            {
+                waitForm.ShowDialog(); // Hiển thị form mà không dispose
+
+                // Lấy phiên bản hiện tại của ứng dụng
+                string currentVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+                // Kiểm tra cập nhật
+                string updateUrl = await CheckUpdate.Instance.CheckForUpdate(currentVersion, UpdateURL);
+
+                waitForm.CloseForm(); // Ẩn form sau khi hoàn thành kiểm tra
+
+                if (!string.IsNullOrEmpty(updateUrl))
+                {
+                    // Hiển thị thông báo nếu có bản cập nhật mới
+                    DialogResult result = MessageBox.Show(
+                        "Phiên bản mới đang có sẵn. Bạn có muốn tải và cài đặt không?",
+                        "Cập nhật",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Information
+                    );
+
+                    if (result == DialogResult.Yes)
+                    {
+                        waitForm.ShowForm(); // Hiển thị lại nếu cần tải xuống
+                        string downloadedFile = await CheckUpdate.Instance.DownloadAndOpenAsync(updateUrl);
+                        waitForm.CloseForm(); // Đóng lại form sau khi tải
+                        MessageBox.Show($"Đã tải tệp về: {downloadedFile}");
+
+                        if (System.IO.File.Exists(downloadedFile))
+                        {
+                            Process.Start("explorer.exe", $"/select,\"{downloadedFile}\"");
+                        }
+                        else
+                        {
+                            MessageBox.Show("File cập nhật không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Hiện không có bản cài đặt nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                waitForm.CloseForm(); // Đảm bảo form được đóng trong mọi trường hợp
+            }
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                TomTat_btn.PerformClick();
+            }
         }
     }
 }

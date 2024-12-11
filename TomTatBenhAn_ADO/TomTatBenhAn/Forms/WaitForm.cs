@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI
 {
@@ -34,7 +26,30 @@ namespace UI
             }
         }
 
+        // Phương thức hiển thị form
+        public void ShowForm()
+        {
+            if (this.IsDisposed)
+            {
+                throw new ObjectDisposedException("WaitForm đã bị disposed.");
+            }
+
+            if (!this.Visible)
+            {
+                this.Show();
+            }
+        }
+
+        // Phương thức đóng form nhưng không dispose
+        public void CloseForm()
+        {
+            if (!this.IsDisposed && this.Visible)
+            {
+                this.Hide(); // Ẩn form thay vì dispose
+            }
+        }
+
         // Tạo các thuộc tính public cho các control cần chia sẻ
-        public System.Windows.Forms.ProgressBar PublicProgressBar => tomtat_status;
+        public ProgressBar PublicProgressBar => tomtat_status;
     }
 }

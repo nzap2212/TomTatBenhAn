@@ -1,17 +1,11 @@
 ﻿using BUS_;
 using BUS_.MainLogic;
 using BUS_.System;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Services;
-using RestSharp;
 using UI.Forms;
 using BUS_.ObjectBUS;
 using DTO;
-using Sprache;
+using System.Diagnostics;
+using refl = System.Reflection;
 
 namespace UI
 {
@@ -51,6 +45,56 @@ namespace UI
                     server_status.Text = "Chưa kết nối";
                     server_status.ForeColor = Color.Red;
                     Application.Exit();
+                }
+                var waitForm = WaitForm.Instance; // Lấy instance
+
+                try
+                {
+                    waitForm.ShowForm(); // Hiển thị form mà không dispose
+
+                    // Lấy phiên bản hiện tại của ứng dụng
+                    string currentVersion = refl.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+                    // Kiểm tra cập nhật
+                    string updateUrl = await CheckUpdate.Instance.CheckForUpdate(currentVersion);
+
+                    waitForm.CloseForm(); // Ẩn form sau khi hoàn thành kiểm tra
+
+                    if (!string.IsNullOrEmpty(updateUrl))
+                    {
+                        // Hiển thị thông báo nếu có bản cập nhật mới
+                        DialogResult result = MessageBox.Show(
+                            "Phiên bản mới đang có sẵn. Bạn có muốn tải và cài đặt không?",
+                            "Cập nhật",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Information
+                        );
+
+                        if (result == DialogResult.Yes)
+                        {
+                            waitForm.ShowForm(); // Hiển thị lại nếu cần tải xuống
+                            string downloadedFile = await CheckUpdate.Instance.DownloadAndOpenAsync(updateUrl);
+                            waitForm.CloseForm(); // Đóng lại form sau khi tải
+                            MessageBox.Show($"Đã tải tệp về: {downloadedFile}");
+
+                            if (System.IO.File.Exists(downloadedFile))
+                            {
+                                Process.Start("explorer.exe", $"/select,\"{downloadedFile}\"");
+                            }
+                            else
+                            {
+                                MessageBox.Show("File cập nhật không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    waitForm.CloseForm(); // Đảm bảo form được đóng trong mọi trường hợp
                 }
             }
             catch (GetStatusErr ex)
@@ -97,6 +141,7 @@ namespace UI
                 AllData.Add("BN_Sex", benhNhan[0].Sex);
                 AllData.Add("BN_Addr", benhNhan[0].Address);
                 AllData.Add("BN_Bhyt", benhNhan[0].Bhyt);
+                AllData.Add("BN_DanToc", benhNhan[0].DanToc);
             }
             catch (Exception ex)
             {
@@ -163,6 +208,7 @@ namespace UI
                 AllData.Add("BN_MaYTe", hanhchinh[0].MaYte);
                 AllData.Add("BN_NgayVaoVien", hanhchinh[0].NgayVaoVien);
                 AllData.Add("BN_NgayRaVien", hanhchinh[0].NgayRaVien);
+                AllData.Add("BN_KetQuaDieuTri", hanhchinh[0].KetQuaDieuTri);
             }
             catch (Exception ex)
             {
@@ -233,12 +279,13 @@ namespace UI
             }
         }
 
+        //Hàm in thông tin về từng loại bệnh án
         public async Task PrintBenhAnType(string ID, Label TomTatlbl, Label LyDoVaoVien, Label TienSuBenh, Label ppDieuTri)
         {
             var result = await CheckBenhAnType.Instance.CheckBenhAn(ID);
             if (result is bool isfalse && !isfalse)
             {
-                MessageBox.Show("Loại bệnh án này chưa hỗ trợ tóm tắt, tính năng này sẽ được cập nhật trong tương lai!!");
+                MessageBox.Show("Loại bệnh án này chưa hỗ trợ tóm tắt, tính năng này sẽ được cập nhật sớm!!");
             }
             else
             {

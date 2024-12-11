@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<ApplicationIcon>faviconw.ico</ApplicationIcon>
+		<PlatformTarget>x86</PlatformTarget>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="app.manifest" />
+	  <None Remove="TemplateTomTat.doc" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="faviconw.ico" />
+	  <Content Include="TemplateTomTat.doc">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DotNetEnv" Version="3.1.1" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="RestSharp" Version="112.1.0" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\BUS_\BUS_.csproj" />
+	  <ProjectReference Include="..\Services\Services.csproj" />
+	</ItemGroup>
+
+
+</Project>

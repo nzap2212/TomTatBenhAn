@@ -12,5 +12,6 @@ namespace DTO
         public string MaYte { get; set; }
         public string NgayVaoVien {  get; set; }
         public string NgayRaVien { get; set; }
+        public string KetQuaDieuTri {  get; set; }
     }
 }

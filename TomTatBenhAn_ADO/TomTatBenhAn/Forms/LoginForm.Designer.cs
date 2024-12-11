@@ -33,12 +33,12 @@
             label1 = new Label();
             label2 = new Label();
             panel1 = new Panel();
+            empCodeInput = new TextBox();
+            label3 = new Label();
             departmentLogin = new TextBox();
             userInputLogin = new TextBox();
             loginBtn = new Button();
             exitBtn = new Button();
-            label3 = new Label();
-            empCodeInput = new TextBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,40 +75,12 @@
             panel1.Size = new Size(589, 195);
             panel1.TabIndex = 3;
             // 
-            // departmentLogin
+            // empCodeInput
             // 
-            departmentLogin.Location = new Point(251, 124);
-            departmentLogin.Name = "departmentLogin";
-            departmentLogin.Size = new Size(314, 27);
-            departmentLogin.TabIndex = 4;
-            // 
-            // userInputLogin
-            // 
-            userInputLogin.Location = new Point(251, 28);
-            userInputLogin.Name = "userInputLogin";
-            userInputLogin.Size = new Size(314, 27);
-            userInputLogin.TabIndex = 3;
-            // 
-            // loginBtn
-            // 
-            loginBtn.Location = new Point(507, 213);
-            loginBtn.Name = "loginBtn";
-            loginBtn.Size = new Size(94, 29);
-            loginBtn.TabIndex = 4;
-            loginBtn.Text = "Đồng ý";
-            loginBtn.UseVisualStyleBackColor = true;
-            loginBtn.Click += loginBtn_Click;
-            // 
-            // exitBtn
-            // 
-            exitBtn.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            exitBtn.Location = new Point(382, 213);
-            exitBtn.Name = "exitBtn";
-            exitBtn.Size = new Size(94, 29);
-            exitBtn.TabIndex = 5;
-            exitBtn.Text = "Thoát";
-            exitBtn.UseVisualStyleBackColor = true;
-            exitBtn.Click += exitBtn_Click;
+            empCodeInput.Location = new Point(251, 74);
+            empCodeInput.Name = "empCodeInput";
+            empCodeInput.Size = new Size(314, 27);
+            empCodeInput.TabIndex = 2;
             // 
             // label3
             // 
@@ -120,12 +92,40 @@
             label3.TabIndex = 5;
             label3.Text = "Nhập mã nhân viên:";
             // 
-            // empCodeInput
+            // departmentLogin
             // 
-            empCodeInput.Location = new Point(251, 74);
-            empCodeInput.Name = "empCodeInput";
-            empCodeInput.Size = new Size(314, 27);
-            empCodeInput.TabIndex = 6;
+            departmentLogin.Location = new Point(251, 124);
+            departmentLogin.Name = "departmentLogin";
+            departmentLogin.Size = new Size(314, 27);
+            departmentLogin.TabIndex = 3;
+            // 
+            // userInputLogin
+            // 
+            userInputLogin.Location = new Point(251, 28);
+            userInputLogin.Name = "userInputLogin";
+            userInputLogin.Size = new Size(314, 27);
+            userInputLogin.TabIndex = 1;
+            // 
+            // loginBtn
+            // 
+            loginBtn.Location = new Point(507, 213);
+            loginBtn.Name = "loginBtn";
+            loginBtn.Size = new Size(94, 29);
+            loginBtn.TabIndex = 5;
+            loginBtn.Text = "Đồng ý";
+            loginBtn.UseVisualStyleBackColor = true;
+            loginBtn.Click += loginBtn_Click;
+            // 
+            // exitBtn
+            // 
+            exitBtn.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            exitBtn.Location = new Point(382, 213);
+            exitBtn.Name = "exitBtn";
+            exitBtn.Size = new Size(94, 29);
+            exitBtn.TabIndex = 4;
+            exitBtn.Text = "Thoát";
+            exitBtn.UseVisualStyleBackColor = true;
+            exitBtn.Click += exitBtn_Click;
             // 
             // LoginForm
             // 

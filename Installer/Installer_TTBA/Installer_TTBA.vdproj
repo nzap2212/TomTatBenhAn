@@ -15,13 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_8E21DF83357A4D5BB9F86E0807FF0F24"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E00563C42B45423EA9E2C0514E72A9BB"
+        "MsmKey" = "8:_C6340199DBEB4EB68CD8FD5FB249070E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -43,6 +37,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -59,6 +69,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -90,26 +116,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8E21DF83357A4D5BB9F86E0807FF0F24"
-            {
-            "SourcePath" = "8:C:\\Users\\hoang\\Downloads\\faviconw_48x48.ico"
-            "TargetName" = "8:faviconw_48x48.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_4B278106D821483B9FDAEAD8ED7AE61D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -166,15 +172,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Tom Tat Ho So Benh An"
-        "ProductCode" = "8:{B92104F3-3752-48F1-851B-437ABFF13370}"
-        "PackageCode" = "8:{F400AAAA-21DA-4E1E-BFF3-D3C7F019B9E7}"
+        "ProductCode" = "8:{D56757FF-BCB2-4E38-9660-FDC7980B5855}"
+        "PackageCode" = "8:{275EE7BA-377F-4668-8E83-BF7364EB3119}"
         "UpgradeCode" = "8:{FAFEBDC8-FE33-46D0-958C-04926FC72FBC}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.1"
         "Manufacturer" = "8:ZigiSofr Co.ltd"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -295,10 +301,10 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_E00563C42B45423EA9E2C0514E72A9BB"
+            "Target" = "8:_C6340199DBEB4EB68CD8FD5FB249070E"
             "Folder" = "8:_1EBD08CF37CE4A68B4D744746CDF54F5"
             "WorkingFolder" = "8:_4B278106D821483B9FDAEAD8ED7AE61D"
-            "Icon" = "8:_8E21DF83357A4D5BB9F86E0807FF0F24"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D34E49D84AE74566B758A89CFB0DD06F"
@@ -309,10 +315,10 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_E00563C42B45423EA9E2C0514E72A9BB"
+            "Target" = "8:_C6340199DBEB4EB68CD8FD5FB249070E"
             "Folder" = "8:_641689EDD49E4115BD29DDA884720D87"
             "WorkingFolder" = "8:_4B278106D821483B9FDAEAD8ED7AE61D"
-            "Icon" = "8:_8E21DF83357A4D5BB9F86E0807FF0F24"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }
@@ -714,9 +720,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_E00563C42B45423EA9E2C0514E72A9BB"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C6340199DBEB4EB68CD8FD5FB249070E"
             {
-            "SourcePath" = "8:..\\..\\TomTatBenhAn_ADO\\TomTatBenhAn\\obj\\Release\\net8.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\..\\TomTatBenhAn_ADO\\TomTatBenhAn\\obj\\Debug\\net8.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4B278106D821483B9FDAEAD8ED7AE61D"
