@@ -81,7 +81,6 @@ namespace BUS_.MainLogic
                     // Thêm User-Agent để tránh lỗi GitHub chặn request
                     httpClient.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
 
-                    Console.WriteLine($"Đang tải từ URL: {url}");
 
                     // Gửi yêu cầu GET
                     var response = await httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);

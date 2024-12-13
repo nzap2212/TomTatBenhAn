@@ -56,9 +56,7 @@ namespace BUS_.MainLogic
             }
             catch (Exception ex)
             {
-                // Ghi log lỗi và thông báo cụ thể
-                Console.WriteLine("Đã xảy ra lỗi: " + ex.Message);
-                throw;
+                throw new GetStatusErr("Hãy đóng file word Hồ sơ tóm tắt hiện tại trước khi chỉnh sửa hồ sơ mới!!", ex);
             }
         }
 
@@ -132,13 +130,13 @@ namespace BUS_.MainLogic
             }
 
             // Xử lý trường hợp bookmark "BN_Name"
-            if (bookmarkName == "BN_Name")
+            if (bookmarkName == "BN_Name" || bookmarkName == "DoctorName")
             {
                 var bookmark = document.Bookmarks[bookmarkName];
                 var range = bookmark.Range;
                 range.Text = newText;
                 range.Font.Name = "Times New Roman";
-                range.Font.Size = 13.5f;
+                range.Font.Size = 14f;
                 range.Font.Bold = 1;
                 // Đặt lại bookmark sau khi thay thế
                 document.Bookmarks.Add(bookmarkName, range);
@@ -151,7 +149,7 @@ namespace BUS_.MainLogic
                 var genericRange = genericBookmark.Range;
                 genericRange.Text = newText;
                 genericRange.Font.Name = "Times New Roman";
-                genericRange.Font.Size = 13.5f;
+                genericRange.Font.Size = 14f;
                 genericRange.Font.Bold = 0;
 
                 // Đặt lại bookmark sau khi thay thế

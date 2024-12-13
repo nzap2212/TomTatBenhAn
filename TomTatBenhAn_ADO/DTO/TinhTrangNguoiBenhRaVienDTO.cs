@@ -9,5 +9,6 @@ namespace DTO
     public class TinhTrangNguoiBenhRaVienDTO
     {
         public string DienBien {  get; set; }   
+        public string LoiDanThayThuoc { get; set; }
     }
 }

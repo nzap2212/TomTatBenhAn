@@ -17,21 +17,24 @@ namespace DAL_.ObjectDAL
         {
             List<TinhTrangNguoiBenhRaVienDTO> tinhTrangNguoiBenhRaVien = new List<TinhTrangNguoiBenhRaVienDTO>();
             string query = $@"SELECT 
-                              TOP 2 DienBien 
-                            FROM 
-                              dbo.NoiTru_KhamBenh 
-                            WHERE 
-                              BenhAn_Id = (
-                                SELECT 
-                                  BenhAn_Id 
-                                FROM 
-                                  dbo.BenhAn 
-                                WHERE 
-                                  SoBenhAn = '{ID}'
-                              ) 
-                              AND DienBien IS NOT NULL 
-                            ORDER BY 
-                              ThoiGianKham DESC";
+  TOP 2 ntkb.DienBien, 
+  bact.LoiDanThayThuoc 
+FROM 
+  dbo.NoiTru_KhamBenh ntkb 
+  LEFT JOIN dbo.BenhAnChiTiet bact ON ntkb.BenhAn_Id = bact.BenhAn_Id 
+WHERE 
+  ntkb.BenhAn_Id = (
+    SELECT 
+      BenhAn_Id 
+    FROM 
+      dbo.BenhAn 
+    WHERE 
+      SoBenhAn = '{ID}'
+  ) 
+  AND DienBien IS NOT NULL 
+ORDER BY 
+  ThoiGianKham DESC
+";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -42,7 +45,8 @@ namespace DAL_.ObjectDAL
                 {
                     tinhTrangNguoiBenhRaVien.Add(new TinhTrangNguoiBenhRaVienDTO()
                     {
-                        DienBien = reader.GetString(0)
+                        DienBien = !reader.IsDBNull(0) ? reader.GetString(0) : "Không có thông tin",
+                        LoiDanThayThuoc = !reader.IsDBNull(1) ? reader.GetString(1) : "Không có thông tin",
                     });
                 }
             }

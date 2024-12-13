@@ -33,10 +33,10 @@
             label1 = new Label();
             label2 = new Label();
             panel1 = new Panel();
-            empCodeInput = new TextBox();
+            departmentCB = new TextBox();
+            userCodeCB = new TextBox();
+            userNameCB = new TextBox();
             label3 = new Label();
-            departmentLogin = new TextBox();
-            userInputLogin = new TextBox();
             loginBtn = new Button();
             exitBtn = new Button();
             panel1.SuspendLayout();
@@ -56,7 +56,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(47, 120);
+            label2.Location = new Point(47, 127);
             label2.Name = "label2";
             label2.Size = new Size(198, 28);
             label2.TabIndex = 1;
@@ -64,10 +64,10 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(empCodeInput);
+            panel1.Controls.Add(departmentCB);
+            panel1.Controls.Add(userCodeCB);
+            panel1.Controls.Add(userNameCB);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(departmentLogin);
-            panel1.Controls.Add(userInputLogin);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
             panel1.Location = new Point(12, 12);
@@ -75,36 +75,36 @@
             panel1.Size = new Size(589, 195);
             panel1.TabIndex = 3;
             // 
-            // empCodeInput
+            // departmentCB
             // 
-            empCodeInput.Location = new Point(251, 74);
-            empCodeInput.Name = "empCodeInput";
-            empCodeInput.Size = new Size(314, 27);
-            empCodeInput.TabIndex = 2;
+            departmentCB.Location = new Point(251, 131);
+            departmentCB.Name = "departmentCB";
+            departmentCB.Size = new Size(315, 27);
+            departmentCB.TabIndex = 8;
+            // 
+            // userCodeCB
+            // 
+            userCodeCB.Location = new Point(251, 80);
+            userCodeCB.Name = "userCodeCB";
+            userCodeCB.Size = new Size(315, 27);
+            userCodeCB.TabIndex = 7;
+            // 
+            // userNameCB
+            // 
+            userNameCB.Location = new Point(251, 28);
+            userNameCB.Name = "userNameCB";
+            userNameCB.Size = new Size(315, 27);
+            userNameCB.TabIndex = 6;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(60, 74);
+            label3.Location = new Point(60, 76);
             label3.Name = "label3";
             label3.Size = new Size(185, 28);
             label3.TabIndex = 5;
             label3.Text = "Nhập mã nhân viên:";
-            // 
-            // departmentLogin
-            // 
-            departmentLogin.Location = new Point(251, 124);
-            departmentLogin.Name = "departmentLogin";
-            departmentLogin.Size = new Size(314, 27);
-            departmentLogin.TabIndex = 3;
-            // 
-            // userInputLogin
-            // 
-            userInputLogin.Location = new Point(251, 28);
-            userInputLogin.Name = "userInputLogin";
-            userInputLogin.Size = new Size(314, 27);
-            userInputLogin.TabIndex = 1;
             // 
             // loginBtn
             // 
@@ -152,9 +152,9 @@
         private Panel panel1;
         private Button loginBtn;
         private Button exitBtn;
-        private TextBox departmentLogin;
-        private TextBox userInputLogin;
         private Label label3;
-        private TextBox empCodeInput;
+        private TextBox departmentCB;
+        private TextBox userCodeCB;
+        private TextBox userNameCB;
     }
 }

@@ -31,7 +31,7 @@ namespace BUS_.MainLogic
         {
             try
             {
-                if (!string.IsNullOrEmpty(userName) && !string.IsNullOrEmpty(userDepartment))
+                if (!string.IsNullOrEmpty(userName) && !string.IsNullOrEmpty(userDepartment) && !string.IsNullOrEmpty(empCode))
                 {
                     var requestData = new
                     {
@@ -54,7 +54,7 @@ namespace BUS_.MainLogic
             }
             catch (Exception ex) 
             {
-                throw new GetStatusErr("Lỗi khi kiểm tra thông tin người dùng" + ex.Message);
+                throw new GetStatusErr("Lỗi khi kiểm tra thông tin người dùng: " + ex.Message);
             }
             return false;
         }

@@ -40,11 +40,12 @@
             label1 = new Label();
             label9 = new Label();
             groupBox3 = new GroupBox();
+            CCCDtxb = new TextBox();
+            label14 = new Label();
             BN_bhyt = new TextBox();
             BN_name = new TextBox();
             label8 = new Label();
             label4 = new Label();
-            PhacDo_btn = new Button();
             TomTat_btn = new Button();
             SoBenhAn_input = new TextBox();
             MaYTe_input = new TextBox();
@@ -100,6 +101,8 @@
             label5 = new Label();
             SoBenhAnlst = new ComboBox();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            label19 = new Label();
+            doctorName = new TextBox();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -226,11 +229,12 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(CCCDtxb);
+            groupBox3.Controls.Add(label14);
             groupBox3.Controls.Add(BN_bhyt);
             groupBox3.Controls.Add(BN_name);
             groupBox3.Controls.Add(label8);
             groupBox3.Controls.Add(label4);
-            groupBox3.Controls.Add(PhacDo_btn);
             groupBox3.Controls.Add(TomTat_btn);
             groupBox3.Controls.Add(SoBenhAn_input);
             groupBox3.Controls.Add(MaYTe_input);
@@ -242,6 +246,22 @@
             groupBox3.TabIndex = 1;
             groupBox3.TabStop = false;
             groupBox3.Text = "Chức năng chính";
+            // 
+            // CCCDtxb
+            // 
+            CCCDtxb.Location = new Point(498, 145);
+            CCCDtxb.Name = "CCCDtxb";
+            CCCDtxb.Size = new Size(260, 27);
+            CCCDtxb.TabIndex = 12;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(419, 149);
+            label14.Name = "label14";
+            label14.Size = new Size(71, 20);
+            label14.TabIndex = 11;
+            label14.Text = "Số CCCD:";
             // 
             // BN_bhyt
             // 
@@ -277,21 +297,11 @@
             label4.TabIndex = 6;
             label4.Text = "Tên bệnh nhân:";
             // 
-            // PhacDo_btn
-            // 
-            PhacDo_btn.Enabled = false;
-            PhacDo_btn.Location = new Point(409, 138);
-            PhacDo_btn.Name = "PhacDo_btn";
-            PhacDo_btn.Size = new Size(377, 43);
-            PhacDo_btn.TabIndex = 5;
-            PhacDo_btn.Text = "Xem gợi ý phác đồ điều trị";
-            PhacDo_btn.UseVisualStyleBackColor = true;
-            // 
             // TomTat_btn
             // 
             TomTat_btn.Location = new Point(17, 138);
             TomTat_btn.Name = "TomTat_btn";
-            TomTat_btn.Size = new Size(386, 43);
+            TomTat_btn.Size = new Size(334, 43);
             TomTat_btn.TabIndex = 4;
             TomTat_btn.Text = "Tóm tắt bệnh án";
             TomTat_btn.UseVisualStyleBackColor = true;
@@ -364,6 +374,8 @@
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(doctorName);
+            groupBox4.Controls.Add(label19);
             groupBox4.Controls.Add(orderReport);
             groupBox4.Controls.Add(label7);
             groupBox4.Controls.Add(editReportBtn);
@@ -381,7 +393,7 @@
             // 
             // orderReport
             // 
-            orderReport.Location = new Point(636, 41);
+            orderReport.Location = new Point(567, 39);
             orderReport.Name = "orderReport";
             orderReport.Size = new Size(159, 27);
             orderReport.TabIndex = 6;
@@ -390,7 +402,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(481, 40);
+            label7.Location = new Point(416, 38);
             label7.Name = "label7";
             label7.Size = new Size(152, 25);
             label7.TabIndex = 5;
@@ -402,9 +414,9 @@
             editReportBtn.Enabled = false;
             editReportBtn.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             editReportBtn.ForeColor = SystemColors.ControlText;
-            editReportBtn.Location = new Point(820, 33);
+            editReportBtn.Location = new Point(1129, 31);
             editReportBtn.Name = "editReportBtn";
-            editReportBtn.Size = new Size(280, 43);
+            editReportBtn.Size = new Size(203, 43);
             editReportBtn.TabIndex = 3;
             editReportBtn.Text = "Chỉnh sửa bản tóm tắt";
             editReportBtn.UseVisualStyleBackColor = false;
@@ -841,7 +853,7 @@
             SoBenhAnlst.FormattingEnabled = true;
             SoBenhAnlst.Location = new Point(198, 37);
             SoBenhAnlst.Name = "SoBenhAnlst";
-            SoBenhAnlst.Size = new Size(277, 28);
+            SoBenhAnlst.Size = new Size(212, 28);
             SoBenhAnlst.TabIndex = 0;
             SoBenhAnlst.SelectionChangeCommitted += SoBenhAnlst_SelectionChangeCommitted;
             // 
@@ -849,6 +861,23 @@
             // 
             sqlCommand1.CommandTimeout = 30;
             sqlCommand1.EnableOptimizedParameterBinding = false;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(732, 43);
+            label19.Name = "label19";
+            label19.Size = new Size(160, 20);
+            label19.TabIndex = 7;
+            label19.Text = "Bác sỹ tóm tắt bệnh án";
+            // 
+            // doctorName
+            // 
+            doctorName.Location = new Point(897, 40);
+            doctorName.Name = "doctorName";
+            doctorName.Size = new Size(225, 27);
+            doctorName.TabIndex = 8;
+            doctorName.Text = "TsBs. Vũ Trung Kiên";
             // 
             // MainForm
             // 
@@ -909,7 +938,6 @@
         private Label label6;
         private CheckBox MaYTe_checkbox;
         private CheckBox SoBenhAn_checkbox;
-        private Button PhacDo_btn;
         private Button TomTat_btn;
         private TextBox SoBenhAn_input;
         private TextBox MaYTe_input;
@@ -970,5 +998,9 @@
         private Label ppDieuTrilbl;
         private TextBox orderReport;
         private Label label7;
+        private TextBox CCCDtxb;
+        private Label label14;
+        private TextBox doctorName;
+        private Label label19;
     }
 }

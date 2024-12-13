@@ -40,16 +40,16 @@ namespace UI.Forms
         {
             try
             {
-                userName = userInputLogin.Text;
-                userDepartment = departmentLogin.Text;
-                empCode = empCodeInput.Text;
+                userName = userNameCB.Text;
+                userDepartment = departmentCB.Text;
+                empCode = userCodeCB.Text;
                 // Lấy MainForm từ Singleton
                 MainForm mainForm = MainForm.Instance;
 
                 // Truyền LoginForm hiện tại cho MainForm
                 mainForm.SetLoginForm(this);
 
-                if (await HandleLogin.Instance.updateUser(userInputLogin.Text, departmentLogin.Text, empCodeInput.Text))
+                if (await HandleLogin.Instance.updateUser(userName, userDepartment, empCode))
                 {
                     // Hiển thị MainForm và ẩn LoginForm
                     mainForm.Show();
@@ -71,5 +71,7 @@ namespace UI.Forms
         {
             Application.Exit();
         }
+
+        
     }
 }

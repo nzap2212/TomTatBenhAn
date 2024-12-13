@@ -7,6 +7,7 @@ using DTO;
 using System.Diagnostics;
 using refl = System.Reflection;
 
+
 namespace UI
 {
     public class UpdateUI
@@ -80,6 +81,7 @@ namespace UI
                             if (System.IO.File.Exists(downloadedFile))
                             {
                                 Process.Start("explorer.exe", $"/select,\"{downloadedFile}\"");
+                                Application.Exit();
                             }
                             else
                             {
@@ -259,7 +261,23 @@ namespace UI
                 {
                     TinhTrangNguoiBenh.Text = a;
                 }
-                AllData.Add("BN_TTNguoiBenhRaVien", a);
+                // Từ khóa cần tìm
+                string keyword = "Hướng điều trị tiếp theo:";
+                // Kiểm tra xem chuỗi có chứa từ khóa hay không
+                if (a.Contains(keyword))
+                {
+                    int endIndex = a.IndexOf(keyword);
+
+                    // Cắt chuỗi từ đầu cho đến trước từ khóa
+                    string result_1 = a.Substring(0, endIndex).Trim();
+                    // Lấy vị trí của từ khóa
+                    int startIndex = a.IndexOf(keyword) + keyword.Length;
+
+                    // Cắt chuỗi từ sau từ khóa đến hết
+                    string result_2 = a.Substring(startIndex).Trim();
+                    AllData.Add("BN_TTNguoiBenhRaVien", result_1);
+                    AllData.Add("BN_HuongDieuTri", result_2);
+                }
             }
             catch (Exception ex)
             {
@@ -286,6 +304,7 @@ namespace UI
             if (result is bool isfalse && !isfalse)
             {
                 MessageBox.Show("Loại bệnh án này chưa hỗ trợ tóm tắt, tính năng này sẽ được cập nhật sớm!!");
+                throw new Exception();
             }
             else
             {

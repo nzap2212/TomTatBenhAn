@@ -1,4 +1,5 @@
-﻿using BUS_.MainLogic;
+﻿using BUS_;
+using BUS_.MainLogic;
 using Services;
 using System.Diagnostics;
 using System.Reflection;
@@ -27,7 +28,6 @@ namespace UI
             this.Load += async (s, e) => await UpdateUI.Instance.PrintUserData(user_txb, department_txb, usage_txb);
             this.KeyPreview = true;
         }
-
         public static MainForm Instance
         {
             get
@@ -97,12 +97,12 @@ namespace UI
             Application.Exit();
         }
         #endregion
+
+        #region Các hàm xử lý chức năng khi người dùng tương tác với UI
         private async void kToolStripMenuItem_Click(object sender, EventArgs e)
         {
             await UpdateUI.Instance.Mainform_load(server_status, ReadFileEnv.Instance.envData);
         }
-
-
 
         // Hàm xử lý sự kiện click button tóm tắt
         private async void TomTat_btn_Click(object sender, EventArgs e)
@@ -151,7 +151,7 @@ namespace UI
                         catch (Exception ex)
                         {
                             waitform.Close();
-                            MessageBox.Show(ex.Message);
+                            MessageBox.Show("Lỗi tại hàm Main: " + ex.Message);
                         }
                     }
                 }
@@ -225,12 +225,14 @@ namespace UI
         private void editReportBtn_Click(object sender, EventArgs e)
         {
             try
-            {
-
-
+            { 
+                DateTime now = DateTime.Now;
                 string currentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
                 string filePath = Path.Combine(currentDirectory, "TemplateTomTat.doc");
                 UpdateUI.Instance.AllData["BN_orderReport"] = orderReport.Text;
+                UpdateUI.Instance.AllData["BN_CCCD"] = CCCDtxb.Text;
+                UpdateUI.Instance.AllData["DoctorName"] = doctorName.Text;
+                UpdateUI.Instance.AllData["DateTime"] = $"Ngày {now.Day} tháng {now.Month} năm {now.Year}";
                 ReportEditor.Instance.GenFileAndPrintData(filePath, UpdateUI.Instance.AllData);
             }
             catch (Exception ex)
@@ -244,9 +246,10 @@ namespace UI
         {
             TienSuBenhlbl.Location = new Point(TomTatInfolbl.Location.X, TomTatInfolbl.Location.Y + TomTatInfolbl.Height + 5);
         }
+        #endregion
 
+        #region Hàm kiểm tra thông tin phiên bản ứng dụng
         //Hàm kiểm tra thông tin cập nhật và tiến hành cập nhật ứng dụng
-
         private string UpdateURL = "http://api-hospital.zigisoft.com/api/version/check";
         private async void kiểmTraCậpNhậtToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -254,7 +257,7 @@ namespace UI
 
             try
             {
-                waitForm.ShowDialog(); // Hiển thị form mà không dispose
+                waitForm.ShowForm(); // Hiển thị form mà không dispose
 
                 // Lấy phiên bản hiện tại của ứng dụng
                 string currentVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -284,6 +287,7 @@ namespace UI
                         if (System.IO.File.Exists(downloadedFile))
                         {
                             Process.Start("explorer.exe", $"/select,\"{downloadedFile}\"");
+                            Application.Exit();
                         }
                         else
                         {
@@ -308,10 +312,13 @@ namespace UI
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) 
+            if (e.KeyCode == Keys.Enter)
             {
                 TomTat_btn.PerformClick();
             }
         }
+        #endregion
+
+        
     }
 }
