@@ -172,15 +172,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Tom Tat Ho So Benh An"
-        "ProductCode" = "8:{F101F074-6E63-421E-B07E-8C970DA23979}"
-        "PackageCode" = "8:{B311480C-B2F0-407B-BA97-209337F7A323}"
+        "ProductCode" = "8:{30482551-68A8-4057-9748-9F5C74109257}"
+        "PackageCode" = "8:{C16BAA31-B67C-4C1E-B449-6070B1106EC8}"
         "UpgradeCode" = "8:{FAFEBDC8-FE33-46D0-958C-04926FC72FBC}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.2"
+        "ProductVersion" = "8:1.0.6"
         "Manufacturer" = "8:ZigiSofr Co.ltd"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -722,7 +722,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C6340199DBEB4EB68CD8FD5FB249070E"
             {
-            "SourcePath" = "8:..\\..\\TomTatBenhAn_ADO\\TomTatBenhAn\\obj\\Debug\\net8.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\..\\TomTatBenhAn_ADO\\TomTatBenhAn\\obj\\Release\\net8.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4B278106D821483B9FDAEAD8ED7AE61D"

@@ -151,7 +151,7 @@ namespace UI
                         catch (Exception ex)
                         {
                             waitform.Close();
-                            MessageBox.Show("Lỗi tại hàm Main: " + ex.Message);
+                            MessageBox.Show("Lỗi tại hàm Main: Bệnh án hiện tại chưa có trong cơ sở dữ liệu, vui lòng thử lại sau" + ex.Message);
                         }
                     }
                 }

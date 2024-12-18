@@ -28,10 +28,22 @@ namespace BUS_.MainLogic
             {
                 // Đảm bảo đường dẫn thư mục Desktop tồn tại
                 string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                string folderPath = Path.Combine(desktopPath, "HoSoTomTat");
-                if (!Directory.Exists(folderPath))
+                string parentFolderPath = Path.Combine(desktopPath, "HoSoTomTat");
+
+                // Kiểm tra và tạo thư mục HoSoTomTat nếu chưa tồn tại
+                if (!Directory.Exists(parentFolderPath))
                 {
-                    Directory.CreateDirectory(folderPath);
+                    Directory.CreateDirectory(parentFolderPath);
+                }
+
+                // Lấy năm hiện tại
+                string currentYear = DateTime.Now.Year.ToString();
+                string yearFolderPath = Path.Combine(parentFolderPath, currentYear);
+
+                // Kiểm tra và tạo thư mục theo năm nếu chưa tồn tại
+                if (!Directory.Exists(yearFolderPath))
+                {
+                    Directory.CreateDirectory(yearFolderPath);
                 }
 
                 // Kiểm tra sự tồn tại của file template
@@ -40,15 +52,15 @@ namespace BUS_.MainLogic
                     throw new FileNotFoundException($"Không tìm thấy file template tại đường dẫn: {filePath}");
                 }
 
-                // Tạo đường dẫn file tạm
-                string tempFilePath = Path.Combine(folderPath, $"{allData["BN_SoBenhAn"]}_HoSoTomTat.doc");
+                // Tạo đường dẫn file tạm trong thư mục theo năm
+                string tempFilePath = Path.Combine(yearFolderPath, $"{allData["BN_orderReport"]}_{allData["BN_SoBenhAn"]}_HoSoTomTat.doc");
 
                 // Sao chép file template vào file tạm
                 File.Copy(filePath, tempFilePath, overwrite: true);
 
                 // Tiếp tục xử lý file tại đây...
                 printDataToWord(tempFilePath, allData);
-                
+
                 await Task.Delay(2000);
                 OpenWordDocument(tempFilePath);
 
@@ -59,6 +71,7 @@ namespace BUS_.MainLogic
                 throw new GetStatusErr("Hãy đóng file word Hồ sơ tóm tắt hiện tại trước khi chỉnh sửa hồ sơ mới!!", ex);
             }
         }
+
 
 
         private void printDataToWord(string filePath, Dictionary<string, string> data)
@@ -95,8 +108,6 @@ namespace BUS_.MainLogic
                 }
             }
         }
-
-
         private void ReplaceBookmarkText(word.Document document, string bookmarkName, string newText)
         {
 
@@ -157,9 +168,6 @@ namespace BUS_.MainLogic
                 return;
             }
         }
-
-
-
         private void OpenWordDocument(string filePath)
         {
             global::System.Diagnostics.Process.Start(new global::System.Diagnostics.ProcessStartInfo
