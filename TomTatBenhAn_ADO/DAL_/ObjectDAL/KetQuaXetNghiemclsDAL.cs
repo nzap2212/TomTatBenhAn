@@ -50,30 +50,35 @@ namespace DAL_.ObjectDAL
                             ORDER BY 
                               clskq.ThoiGianThucHien desc";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand cmd = new SqlCommand(query, connection);
-                connection.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    ketQuaXetNghiemLst.Add(new KetQuaXetNghiemclsDTO()
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (!reader.HasRows) // Kiểm tra nếu không có kết quả
                     {
-                        NhomDichVu = !reader.IsDBNull(0) ? reader.GetString(0) : "Không có thông tin",
-                        NoiDungChiTiet = !reader.IsDBNull(1) ? reader.GetString(1) : "Không có thông tin",
-                        TenPhongBan = !reader.IsDBNull(2) ? reader.GetString(2) : "Không có thông tin",
-                        DichVu = !reader.IsDBNull(3) ? reader.GetString(3) : "Không có thông tin",
-                        KetQua = !reader.IsDBNull(4) ? reader.GetString(4) : "Không có thông tin",
-                        MucBinhThuong = !reader.IsDBNull(5) ? reader.GetString(5) : "Không có thông tin",
-                        MucBinhThuongMin = !reader.IsDBNull(6) ? reader.GetString(6) : "Không có thông tin",
-                        MucBinhThuongMax = !reader.IsDBNull(7) ? reader.GetString(7) : "Không có thông tin",
-                        BatThuong = !reader.IsDBNull(8) ? reader.GetBoolean(8).ToString() : "Không có thông tin",
-                        ThoiGianThucHien = !reader.IsDBNull(9) ? reader.GetDateTime(9).ToString() : "Không có thông tin",
-                        KetLuan = !reader.IsDBNull(10) ? reader.GetString(10) : "Không có thông tin",
-                        MoTa = !reader.IsDBNull(11) ? reader.GetString(11) : "Không có thông tin",
-                    });
+                        // Log hoặc xử lý thêm nếu cần
+                        return new List<KetQuaXetNghiemclsDTO>(); // Trả về danh sách rỗng
+                    }
+                    while (reader.Read())
+                    {
+                        ketQuaXetNghiemLst.Add(new KetQuaXetNghiemclsDTO()
+                        {
+                            NhomDichVu = !reader.IsDBNull(0) ? reader.GetString(0) : "Không có thông tin",
+                            NoiDungChiTiet = !reader.IsDBNull(1) ? reader.GetString(1) : "Không có thông tin",
+                            TenPhongBan = !reader.IsDBNull(2) ? reader.GetString(2) : "Không có thông tin",
+                            DichVu = !reader.IsDBNull(3) ? reader.GetString(3) : "Không có thông tin",
+                            KetQua = !reader.IsDBNull(4) ? reader.GetString(4) : "Không có thông tin",
+                            MucBinhThuong = !reader.IsDBNull(5) ? reader.GetString(5) : "Không có thông tin",
+                            MucBinhThuongMin = !reader.IsDBNull(6) ? reader.GetString(6) : "Không có thông tin",
+                            MucBinhThuongMax = !reader.IsDBNull(7) ? reader.GetString(7) : "Không có thông tin",
+                            BatThuong = !reader.IsDBNull(8) ? reader.GetBoolean(8).ToString() : "Không có thông tin",
+                            ThoiGianThucHien = !reader.IsDBNull(9) ? reader.GetDateTime(9).ToString() : "Không có thông tin",
+                            KetLuan = !reader.IsDBNull(10) ? reader.GetString(10) : "Không có thông tin",
+                            MoTa = !reader.IsDBNull(11) ? reader.GetString(11) : "Không có thông tin",
+                        });
+                    }
                 }
-            }
             return ketQuaXetNghiemLst;
         }
     }

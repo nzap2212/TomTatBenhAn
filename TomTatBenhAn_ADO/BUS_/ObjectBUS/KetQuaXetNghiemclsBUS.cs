@@ -11,15 +11,16 @@ namespace BUS_.ObjectBUS
     public class KetQuaXetNghiemclsBUS
     {
         private static KetQuaXetNghiemclsBUS instance;
-        
+
         public static KetQuaXetNghiemclsBUS Instance
         {
-            get{
-                if(instance == null)
+            get
+            {
+                if (instance == null)
                 {
                     instance = new KetQuaXetNghiemclsBUS();
                 }
-                return instance; 
+                return instance;
             }
         }
 
@@ -27,9 +28,16 @@ namespace BUS_.ObjectBUS
 
         private KetQuaXetNghiemclsDAL ketQuaXetNghiemclsDAL = new KetQuaXetNghiemclsDAL();
 
-        public List<KetQuaXetNghiemclsDTO> GetKetQuaXetNghiem(string ID) 
+        public List<KetQuaXetNghiemclsDTO> GetKetQuaXetNghiem(string ID)
         {
-            return ketQuaXetNghiemclsDAL.GetKetQuaXetNghiemInfo(ID);
+            if (ketQuaXetNghiemclsDAL.GetKetQuaXetNghiemInfo(ID).Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return ketQuaXetNghiemclsDAL.GetKetQuaXetNghiemInfo(ID);
+            }
         }
     }
 }

@@ -135,12 +135,9 @@ namespace UI
                                                             BenhChinhICD2, BenhPhuICD2,
                                                             SoBenhAn_input.Text);
                             // Chạy các tác vụ nặng trên luồng nền
-                            await Task.Run(async () =>
-                            {
-                                await UpdateUI.Instance.PrintBenhAnType(SoBenhAn_input.Text, TomTatInfolbl, Lydovaovienlbl, TienSuBenhlbl, ppDieuTrilbl);
-                                await UpdateUI.Instance.PrintKetQuaXetNghiemCLS(SoBenhAn_input.Text, BenhChinh2.Text, KQXNlbl);
-                                await UpdateUI.Instance.PrintTinhTrangNguoiBenh(SoBenhAn_input.Text, TTNBlbl);
-                            });
+                            await UpdateUI.Instance.PrintBenhAnType(SoBenhAn_input.Text, TomTatInfolbl, Lydovaovienlbl, TienSuBenhlbl, ppDieuTrilbl);
+                            await UpdateUI.Instance.PrintKetQuaXetNghiemCLS(SoBenhAn_input.Text, BenhChinh2.Text, KQXNlbl);
+                            await UpdateUI.Instance.PrintTinhTrangNguoiBenh(SoBenhAn_input.Text, TTNBlbl);
                             if (await UpdateUsage.Instance.UpdateUsage_user(LoginForm.Instance.userName, LoginForm.Instance.userDepartment, LoginForm.Instance.empCode))
                             {
                                 await UpdateUI.Instance.PrintUserData(user_txb, department_txb, usage_txb);
@@ -151,7 +148,7 @@ namespace UI
                         catch (Exception ex)
                         {
                             waitform.Close();
-                            MessageBox.Show("Lỗi tại hàm Main: Bệnh án hiện tại chưa có trong cơ sở dữ liệu, vui lòng thử lại sau" + ex.Message);
+                            MessageBox.Show(ex.Message);
                         }
                     }
                 }
@@ -225,7 +222,7 @@ namespace UI
         private void editReportBtn_Click(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 DateTime now = DateTime.Now;
                 string currentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
                 string filePath = Path.Combine(currentDirectory, "TemplateTomTat.doc");
@@ -319,6 +316,6 @@ namespace UI
         }
         #endregion
 
-        
+
     }
 }

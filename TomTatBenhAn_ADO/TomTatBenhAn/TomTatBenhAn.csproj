@@ -9,8 +9,8 @@
 		<ApplicationIcon>faviconw.ico</ApplicationIcon>
 		<PlatformTarget>x86</PlatformTarget>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
-		<AssemblyVersion>1.0.0.7</AssemblyVersion>
-		<FileVersion>1.0.0.7</FileVersion>
+		<AssemblyVersion>1.0.0.9</AssemblyVersion>
+		<FileVersion>1.0.0.9</FileVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

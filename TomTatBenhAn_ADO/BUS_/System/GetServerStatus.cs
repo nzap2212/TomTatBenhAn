@@ -59,7 +59,6 @@ namespace BUS_.System
                     string status_response = test_response.Content.Trim().ToString();
                     if (!status_response.IsNullOrEmpty())
                     {
-                        envData["API_KEY_1"] = status_response;
                         IsConnected = true;
                     }
                 }

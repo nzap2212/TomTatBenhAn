@@ -82,14 +82,16 @@ namespace BUS_.MainLogic
             try
             {
                 var list_kqxn = KetQuaXetNghiemclsBUS.Instance.GetKetQuaXetNghiem(ID);
-                string kqxn_json = JsonConvert.SerializeObject(list_kqxn, Formatting.Indented);
-                string question = envData["PROMT_KQXN"];
-                question = question.Replace("@ChanDoanChinh", ChanDoanChinh);
-                question = question.Replace("@DanhSachKQXN", kqxn_json);
-
-                var requestData = new
+                if (list_kqxn != null)
                 {
-                    contents = new[] {
+                    string kqxn_json = JsonConvert.SerializeObject(list_kqxn, Formatting.Indented);
+                    string question = envData["PROMT_KQXN"];
+                    question = question.Replace("@ChanDoanChinh", ChanDoanChinh);
+                    question = question.Replace("@DanhSachKQXN", kqxn_json);
+
+                    var requestData = new
+                    {
+                        contents = new[] {
                     new {
                         parts = new[] {
                             new {
@@ -98,29 +100,34 @@ namespace BUS_.MainLogic
                         }
                     }
                 }
-                };
+                    };
 
-                // gửi request đi
-                var client = new RestClient(envData["API_URL"] + envData["API_KEY_2"]);
-                var request = new RestRequest("", Method.Post);
-                request.AddHeader("Content-Type", "application/json");
-                request.AddJsonBody(requestData);
+                    // gửi request đi
+                    var client = new RestClient(envData["API_URL"] + envData["API_KEY_2"]);
+                    var request = new RestRequest("", Method.Post);
+                    request.AddHeader("Content-Type", "application/json");
+                    request.AddJsonBody(requestData);
 
-                RestResponse response = await client.ExecuteAsync(request);
-                if (response.IsSuccessful)
-                {
-                    var jsonResponse = JObject.Parse(response.Content);
-                    var result_text = jsonResponse["candidates"][0]["content"]["parts"][0]["text"].ToString();
-                    return result_text;
+                    RestResponse response = await client.ExecuteAsync(request);
+                    if (response.IsSuccessful)
+                    {
+                        var jsonResponse = JObject.Parse(response.Content);
+                        var result_text = jsonResponse["candidates"][0]["content"]["parts"][0]["text"].ToString();
+                        return result_text;
+                    }
+                    else
+                    {
+                        throw new AskAiErr("Lỗi khi nhận phản hồi tóm tắt");
+                    }
                 }
                 else
                 {
-                    throw new AskAiErr("Lỗi khi nhận phản hồi tóm tắt");
+                    return "Bệnh nhân chưa sử dụng dịch vụ xét nghiệm nào";
                 }
             }
             catch(Exception ex)
             {
-                throw new AskAiErr(ex.Message);
+                throw new AskAiErr("Lỗi tại hàm tóm tắt kết quả xét nghiệm: " + ex.Message);
             }
         }
 
