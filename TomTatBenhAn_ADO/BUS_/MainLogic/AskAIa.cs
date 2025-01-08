@@ -15,7 +15,7 @@ namespace BUS_.MainLogic
     public class AskAIa
     {
         private static AskAIa instance;
-        public static AskAIa Instance
+        public static AskAIa Instance 
         {
             get
             {

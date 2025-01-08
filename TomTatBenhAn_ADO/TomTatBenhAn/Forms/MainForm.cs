@@ -317,5 +317,10 @@ namespace UI
         #endregion
 
 
+        private void kiểmTraCấuHìnhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string config = ReadFileEnv.Instance.envData["API_KEY_1"] + "\n" + ReadFileEnv.Instance.envData["API_KEY_2"] + "\n" + ReadFileEnv.Instance.envData["API_KEY_3"] + "\n";
+            MessageBox.Show(config);
+        }
     }
 }

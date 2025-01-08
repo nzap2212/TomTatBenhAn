@@ -55,6 +55,8 @@
             kiểmTraCậpNhậtToolStripMenuItem = new ToolStripMenuItem();
             kToolStripMenuItem = new ToolStripMenuItem();
             groupBox4 = new GroupBox();
+            doctorName = new TextBox();
+            label19 = new Label();
             orderReport = new TextBox();
             label7 = new Label();
             editReportBtn = new Button();
@@ -101,8 +103,7 @@
             label5 = new Label();
             SoBenhAnlst = new ComboBox();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
-            label19 = new Label();
-            doctorName = new TextBox();
+            kiểmTraCấuHìnhToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -129,9 +130,11 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(27, 43);
+            groupBox1.Location = new Point(34, 54);
+            groupBox1.Margin = new Padding(4, 4, 4, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(537, 193);
+            groupBox1.Padding = new Padding(4, 4, 4, 4);
+            groupBox1.Size = new Size(671, 241);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin người dùng";
@@ -140,30 +143,33 @@
             // 
             usage_txb.Enabled = false;
             usage_txb.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            usage_txb.Location = new Point(171, 111);
+            usage_txb.Location = new Point(214, 139);
+            usage_txb.Margin = new Padding(4, 4, 4, 4);
             usage_txb.Name = "usage_txb";
             usage_txb.ReadOnly = true;
-            usage_txb.Size = new Size(360, 31);
+            usage_txb.Size = new Size(449, 36);
             usage_txb.TabIndex = 11;
             // 
             // department_txb
             // 
             department_txb.Enabled = false;
             department_txb.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            department_txb.Location = new Point(171, 69);
+            department_txb.Location = new Point(214, 86);
+            department_txb.Margin = new Padding(4, 4, 4, 4);
             department_txb.Name = "department_txb";
             department_txb.ReadOnly = true;
-            department_txb.Size = new Size(360, 31);
+            department_txb.Size = new Size(449, 36);
             department_txb.TabIndex = 10;
             // 
             // user_txb
             // 
             user_txb.Enabled = false;
             user_txb.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            user_txb.Location = new Point(171, 28);
+            user_txb.Location = new Point(214, 35);
+            user_txb.Margin = new Padding(4, 4, 4, 4);
             user_txb.Name = "user_txb";
             user_txb.ReadOnly = true;
-            user_txb.Size = new Size(360, 31);
+            user_txb.Size = new Size(449, 36);
             user_txb.TabIndex = 9;
             // 
             // server_status
@@ -171,9 +177,10 @@
             server_status.AutoSize = true;
             server_status.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             server_status.ForeColor = Color.Red;
-            server_status.Location = new Point(279, 154);
+            server_status.Location = new Point(349, 192);
+            server_status.Margin = new Padding(4, 0, 4, 0);
             server_status.Name = "server_status";
-            server_status.Size = new Size(120, 25);
+            server_status.Size = new Size(144, 30);
             server_status.TabIndex = 8;
             server_status.Text = "Chưa kết nối";
             // 
@@ -181,9 +188,10 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(20, 114);
+            label3.Location = new Point(25, 142);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(145, 25);
+            label3.Size = new Size(171, 30);
             label3.TabIndex = 2;
             label3.Text = "Số lượt sử dụng:";
             // 
@@ -191,9 +199,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(62, 72);
+            label2.Location = new Point(78, 90);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(103, 25);
+            label2.Size = new Size(122, 30);
             label2.TabIndex = 1;
             label2.Text = "Phòng ban:";
             // 
@@ -201,9 +210,10 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(20, 155);
+            label6.Location = new Point(25, 194);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(253, 25);
+            label6.Size = new Size(307, 30);
             label6.TabIndex = 3;
             label6.Text = "Trạng thái kết nối với máy chủ:";
             // 
@@ -211,9 +221,10 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(28, 31);
+            label1.Location = new Point(35, 39);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(137, 25);
+            label1.Size = new Size(162, 30);
             label1.TabIndex = 0;
             label1.Text = "Người sử dụng:";
             // 
@@ -221,9 +232,10 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(33, 26);
+            label9.Location = new Point(41, 32);
+            label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(99, 23);
+            label9.Size = new Size(123, 30);
             label9.TabIndex = 12;
             label9.Text = "Bệnh án số:";
             // 
@@ -240,68 +252,77 @@
             groupBox3.Controls.Add(MaYTe_input);
             groupBox3.Controls.Add(MaYTe_checkbox);
             groupBox3.Controls.Add(SoBenhAn_checkbox);
-            groupBox3.Location = new Point(590, 43);
+            groupBox3.Location = new Point(738, 54);
+            groupBox3.Margin = new Padding(4, 4, 4, 4);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(793, 193);
+            groupBox3.Padding = new Padding(4, 4, 4, 4);
+            groupBox3.Size = new Size(991, 241);
             groupBox3.TabIndex = 1;
             groupBox3.TabStop = false;
             groupBox3.Text = "Chức năng chính";
             // 
             // CCCDtxb
             // 
-            CCCDtxb.Location = new Point(498, 145);
+            CCCDtxb.Location = new Point(622, 181);
+            CCCDtxb.Margin = new Padding(4, 4, 4, 4);
             CCCDtxb.Name = "CCCDtxb";
-            CCCDtxb.Size = new Size(260, 27);
+            CCCDtxb.Size = new Size(324, 31);
             CCCDtxb.TabIndex = 12;
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(419, 149);
+            label14.Location = new Point(524, 186);
+            label14.Margin = new Padding(4, 0, 4, 0);
             label14.Name = "label14";
-            label14.Size = new Size(71, 20);
+            label14.Size = new Size(88, 25);
             label14.TabIndex = 11;
             label14.Text = "Số CCCD:";
             // 
             // BN_bhyt
             // 
-            BN_bhyt.Location = new Point(498, 91);
+            BN_bhyt.Location = new Point(622, 114);
+            BN_bhyt.Margin = new Padding(4, 4, 4, 4);
             BN_bhyt.Name = "BN_bhyt";
             BN_bhyt.ReadOnly = true;
-            BN_bhyt.Size = new Size(260, 27);
+            BN_bhyt.Size = new Size(324, 31);
             BN_bhyt.TabIndex = 10;
             // 
             // BN_name
             // 
-            BN_name.Location = new Point(498, 35);
+            BN_name.Location = new Point(622, 44);
+            BN_name.Margin = new Padding(4, 4, 4, 4);
             BN_name.Name = "BN_name";
             BN_name.ReadOnly = true;
-            BN_name.Size = new Size(260, 27);
+            BN_name.Size = new Size(324, 31);
             BN_name.TabIndex = 9;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(398, 95);
+            label8.Location = new Point(498, 119);
+            label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(94, 20);
+            label8.Size = new Size(114, 25);
             label8.TabIndex = 8;
             label8.Text = "Số thẻ BHYT:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(384, 37);
+            label4.Location = new Point(480, 46);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(108, 20);
+            label4.Size = new Size(131, 25);
             label4.TabIndex = 6;
             label4.Text = "Tên bệnh nhân:";
             // 
             // TomTat_btn
             // 
-            TomTat_btn.Location = new Point(17, 138);
+            TomTat_btn.Location = new Point(21, 172);
+            TomTat_btn.Margin = new Padding(4, 4, 4, 4);
             TomTat_btn.Name = "TomTat_btn";
-            TomTat_btn.Size = new Size(334, 43);
+            TomTat_btn.Size = new Size(418, 54);
             TomTat_btn.TabIndex = 4;
             TomTat_btn.Text = "Tóm tắt bệnh án";
             TomTat_btn.UseVisualStyleBackColor = true;
@@ -310,27 +331,30 @@
             // SoBenhAn_input
             // 
             SoBenhAn_input.Enabled = false;
-            SoBenhAn_input.Location = new Point(149, 88);
+            SoBenhAn_input.Location = new Point(186, 110);
+            SoBenhAn_input.Margin = new Padding(4, 4, 4, 4);
             SoBenhAn_input.Name = "SoBenhAn_input";
-            SoBenhAn_input.Size = new Size(202, 27);
+            SoBenhAn_input.Size = new Size(252, 31);
             SoBenhAn_input.TabIndex = 3;
             SoBenhAn_input.Enter += SoBenhAn_input_Enter;
             // 
             // MaYTe_input
             // 
             MaYTe_input.Enabled = false;
-            MaYTe_input.Location = new Point(149, 37);
+            MaYTe_input.Location = new Point(186, 46);
+            MaYTe_input.Margin = new Padding(4, 4, 4, 4);
             MaYTe_input.Name = "MaYTe_input";
-            MaYTe_input.Size = new Size(202, 27);
+            MaYTe_input.Size = new Size(252, 31);
             MaYTe_input.TabIndex = 2;
             MaYTe_input.Enter += MaYTe_input_Enter;
             // 
             // MaYTe_checkbox
             // 
             MaYTe_checkbox.AutoSize = true;
-            MaYTe_checkbox.Location = new Point(27, 37);
+            MaYTe_checkbox.Location = new Point(34, 46);
+            MaYTe_checkbox.Margin = new Padding(4, 4, 4, 4);
             MaYTe_checkbox.Name = "MaYTe_checkbox";
-            MaYTe_checkbox.Size = new Size(83, 24);
+            MaYTe_checkbox.Size = new Size(101, 29);
             MaYTe_checkbox.TabIndex = 1;
             MaYTe_checkbox.Text = "Mã y tế:";
             MaYTe_checkbox.UseVisualStyleBackColor = true;
@@ -339,9 +363,10 @@
             // SoBenhAn_checkbox
             // 
             SoBenhAn_checkbox.AutoSize = true;
-            SoBenhAn_checkbox.Location = new Point(27, 91);
+            SoBenhAn_checkbox.Location = new Point(34, 114);
+            SoBenhAn_checkbox.Margin = new Padding(4, 4, 4, 4);
             SoBenhAn_checkbox.Name = "SoBenhAn_checkbox";
-            SoBenhAn_checkbox.Size = new Size(108, 24);
+            SoBenhAn_checkbox.Size = new Size(132, 29);
             SoBenhAn_checkbox.TabIndex = 0;
             SoBenhAn_checkbox.Text = "Số bệnh án:";
             SoBenhAn_checkbox.UseVisualStyleBackColor = true;
@@ -350,25 +375,25 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { kiểmTraCậpNhậtToolStripMenuItem, kToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { kiểmTraCậpNhậtToolStripMenuItem, kToolStripMenuItem, kiểmTraCấuHìnhToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(6, 3, 0, 3);
-            menuStrip1.Size = new Size(1419, 30);
+            menuStrip1.Padding = new Padding(8, 4, 0, 4);
+            menuStrip1.Size = new Size(1769, 37);
             menuStrip1.TabIndex = 3;
             menuStrip1.Text = "menuStrip1";
             // 
             // kiểmTraCậpNhậtToolStripMenuItem
             // 
             kiểmTraCậpNhậtToolStripMenuItem.Name = "kiểmTraCậpNhậtToolStripMenuItem";
-            kiểmTraCậpNhậtToolStripMenuItem.Size = new Size(140, 24);
+            kiểmTraCậpNhậtToolStripMenuItem.Size = new Size(166, 29);
             kiểmTraCậpNhậtToolStripMenuItem.Text = "Kiểm tra cập nhật";
             kiểmTraCậpNhậtToolStripMenuItem.Click += kiểmTraCậpNhậtToolStripMenuItem_Click;
             // 
             // kToolStripMenuItem
             // 
             kToolStripMenuItem.Name = "kToolStripMenuItem";
-            kToolStripMenuItem.Size = new Size(187, 24);
+            kToolStripMenuItem.Size = new Size(224, 29);
             kToolStripMenuItem.Text = "Kiểm tra kết nối máy chủ";
             kToolStripMenuItem.Click += kToolStripMenuItem_Click;
             // 
@@ -384,27 +409,50 @@
             groupBox4.Controls.Add(groupBox2);
             groupBox4.Controls.Add(label5);
             groupBox4.Controls.Add(SoBenhAnlst);
-            groupBox4.Location = new Point(28, 242);
+            groupBox4.Location = new Point(35, 302);
+            groupBox4.Margin = new Padding(4, 4, 4, 4);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(1355, 731);
+            groupBox4.Padding = new Padding(4, 4, 4, 4);
+            groupBox4.Size = new Size(1694, 914);
             groupBox4.TabIndex = 2;
             groupBox4.TabStop = false;
             groupBox4.Text = "Kết quả";
             // 
+            // doctorName
+            // 
+            doctorName.Location = new Point(1121, 50);
+            doctorName.Margin = new Padding(4, 4, 4, 4);
+            doctorName.Name = "doctorName";
+            doctorName.Size = new Size(280, 31);
+            doctorName.TabIndex = 8;
+            doctorName.Text = "TsBs. Vũ Trung Kiên";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(915, 54);
+            label19.Margin = new Padding(4, 0, 4, 0);
+            label19.Name = "label19";
+            label19.Size = new Size(194, 25);
+            label19.TabIndex = 7;
+            label19.Text = "Bác sỹ tóm tắt bệnh án";
+            // 
             // orderReport
             // 
-            orderReport.Location = new Point(567, 39);
+            orderReport.Location = new Point(709, 49);
+            orderReport.Margin = new Padding(4, 4, 4, 4);
             orderReport.Name = "orderReport";
-            orderReport.Size = new Size(159, 27);
+            orderReport.Size = new Size(198, 31);
             orderReport.TabIndex = 6;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(416, 38);
+            label7.Location = new Point(520, 48);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(152, 25);
+            label7.Size = new Size(181, 30);
             label7.TabIndex = 5;
             label7.Text = "Nhập số báo cáo:";
             // 
@@ -414,9 +462,10 @@
             editReportBtn.Enabled = false;
             editReportBtn.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             editReportBtn.ForeColor = SystemColors.ControlText;
-            editReportBtn.Location = new Point(1129, 31);
+            editReportBtn.Location = new Point(1411, 39);
+            editReportBtn.Margin = new Padding(4, 4, 4, 4);
             editReportBtn.Name = "editReportBtn";
-            editReportBtn.Size = new Size(203, 43);
+            editReportBtn.Size = new Size(254, 54);
             editReportBtn.TabIndex = 3;
             editReportBtn.Text = "Chỉnh sửa bản tóm tắt";
             editReportBtn.UseVisualStyleBackColor = false;
@@ -425,9 +474,11 @@
             // groupBox6
             // 
             groupBox6.Controls.Add(tabControl1);
-            groupBox6.Location = new Point(11, 290);
+            groupBox6.Location = new Point(14, 362);
+            groupBox6.Margin = new Padding(4, 4, 4, 4);
             groupBox6.Name = "groupBox6";
-            groupBox6.Size = new Size(1338, 435);
+            groupBox6.Padding = new Padding(4, 4, 4, 4);
+            groupBox6.Size = new Size(1672, 544);
             groupBox6.TabIndex = 4;
             groupBox6.TabStop = false;
             groupBox6.Text = "TÓM TẮT QUÁ TRÌNH ĐIỀU TRỊ";
@@ -438,10 +489,11 @@
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage4);
-            tabControl1.Location = new Point(9, 22);
+            tabControl1.Location = new Point(11, 28);
+            tabControl1.Margin = new Padding(4, 4, 4, 4);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1326, 407);
+            tabControl1.Size = new Size(1658, 509);
             tabControl1.TabIndex = 0;
             // 
             // tab1
@@ -451,10 +503,11 @@
             tab1.Controls.Add(TomTatInfolbl);
             tab1.Controls.Add(Lydovaovienlbl);
             tab1.Controls.Add(label13);
-            tab1.Location = new Point(4, 29);
+            tab1.Location = new Point(4, 34);
+            tab1.Margin = new Padding(4, 4, 4, 4);
             tab1.Name = "tab1";
-            tab1.Padding = new Padding(3);
-            tab1.Size = new Size(1318, 374);
+            tab1.Padding = new Padding(4, 4, 4, 4);
+            tab1.Size = new Size(1650, 471);
             tab1.TabIndex = 0;
             tab1.Text = "a. Quá trình bệnh lí và diễn biến lâm sàng";
             tab1.UseVisualStyleBackColor = true;
@@ -463,20 +516,22 @@
             // 
             TienSuBenhlbl.AutoSize = true;
             TienSuBenhlbl.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TienSuBenhlbl.Location = new Point(6, 58);
-            TienSuBenhlbl.MaximumSize = new Size(1200, 0);
+            TienSuBenhlbl.Location = new Point(8, 72);
+            TienSuBenhlbl.Margin = new Padding(4, 0, 4, 0);
+            TienSuBenhlbl.MaximumSize = new Size(1500, 0);
             TienSuBenhlbl.Name = "TienSuBenhlbl";
-            TienSuBenhlbl.Size = new Size(0, 25);
+            TienSuBenhlbl.Size = new Size(0, 30);
             TienSuBenhlbl.TabIndex = 3;
             // 
             // TomTatInfolbl
             // 
             TomTatInfolbl.AutoSize = true;
             TomTatInfolbl.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TomTatInfolbl.Location = new Point(7, 33);
-            TomTatInfolbl.MaximumSize = new Size(1200, 0);
+            TomTatInfolbl.Location = new Point(9, 41);
+            TomTatInfolbl.Margin = new Padding(4, 0, 4, 0);
+            TomTatInfolbl.MaximumSize = new Size(1500, 0);
             TomTatInfolbl.Name = "TomTatInfolbl";
-            TomTatInfolbl.Size = new Size(0, 25);
+            TomTatInfolbl.Size = new Size(0, 30);
             TomTatInfolbl.TabIndex = 2;
             TomTatInfolbl.SizeChanged += TomTatInfolbl_SizeChanged;
             // 
@@ -484,18 +539,20 @@
             // 
             Lydovaovienlbl.AutoSize = true;
             Lydovaovienlbl.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Lydovaovienlbl.Location = new Point(139, 8);
+            Lydovaovienlbl.Location = new Point(174, 10);
+            Lydovaovienlbl.Margin = new Padding(4, 0, 4, 0);
             Lydovaovienlbl.Name = "Lydovaovienlbl";
-            Lydovaovienlbl.Size = new Size(0, 25);
+            Lydovaovienlbl.Size = new Size(0, 30);
             Lydovaovienlbl.TabIndex = 1;
             // 
             // label13
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(8, 8);
+            label13.Location = new Point(10, 10);
+            label13.Margin = new Padding(4, 0, 4, 0);
             label13.Name = "label13";
-            label13.Size = new Size(134, 25);
+            label13.Size = new Size(160, 30);
             label13.TabIndex = 0;
             label13.Text = "Lý do vào viện:";
             // 
@@ -503,10 +560,11 @@
             // 
             tabPage2.AutoScroll = true;
             tabPage2.Controls.Add(KQXNlbl);
-            tabPage2.Location = new Point(4, 29);
+            tabPage2.Location = new Point(4, 34);
+            tabPage2.Margin = new Padding(4, 4, 4, 4);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1318, 374);
+            tabPage2.Padding = new Padding(4, 4, 4, 4);
+            tabPage2.Size = new Size(1650, 471);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "b. Tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán";
             tabPage2.UseVisualStyleBackColor = true;
@@ -515,19 +573,21 @@
             // 
             KQXNlbl.AutoSize = true;
             KQXNlbl.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            KQXNlbl.Location = new Point(3, 3);
-            KQXNlbl.MaximumSize = new Size(1250, 0);
+            KQXNlbl.Location = new Point(4, 4);
+            KQXNlbl.Margin = new Padding(4, 0, 4, 0);
+            KQXNlbl.MaximumSize = new Size(1562, 0);
             KQXNlbl.Name = "KQXNlbl";
-            KQXNlbl.Size = new Size(0, 25);
+            KQXNlbl.Size = new Size(0, 30);
             KQXNlbl.TabIndex = 0;
             // 
             // tabPage3
             // 
             tabPage3.Controls.Add(ppDieuTrilbl);
-            tabPage3.Location = new Point(4, 29);
+            tabPage3.Location = new Point(4, 34);
+            tabPage3.Margin = new Padding(4, 4, 4, 4);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(1318, 374);
+            tabPage3.Padding = new Padding(4, 4, 4, 4);
+            tabPage3.Size = new Size(1650, 471);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "c. Phương pháp điều trị";
             tabPage3.UseVisualStyleBackColor = true;
@@ -536,19 +596,21 @@
             // 
             ppDieuTrilbl.AutoSize = true;
             ppDieuTrilbl.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ppDieuTrilbl.Location = new Point(0, 3);
+            ppDieuTrilbl.Location = new Point(0, 4);
+            ppDieuTrilbl.Margin = new Padding(4, 0, 4, 0);
             ppDieuTrilbl.Name = "ppDieuTrilbl";
-            ppDieuTrilbl.Size = new Size(0, 31);
+            ppDieuTrilbl.Size = new Size(0, 38);
             ppDieuTrilbl.TabIndex = 0;
             // 
             // tabPage4
             // 
             tabPage4.AutoScroll = true;
             tabPage4.Controls.Add(TTNBlbl);
-            tabPage4.Location = new Point(4, 29);
+            tabPage4.Location = new Point(4, 34);
+            tabPage4.Margin = new Padding(4, 4, 4, 4);
             tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(1318, 374);
+            tabPage4.Padding = new Padding(4, 4, 4, 4);
+            tabPage4.Size = new Size(1650, 471);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "d. Tình trạng người bệnh ra viện";
             tabPage4.UseVisualStyleBackColor = true;
@@ -557,19 +619,22 @@
             // 
             TTNBlbl.AutoSize = true;
             TTNBlbl.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TTNBlbl.Location = new Point(6, 0);
-            TTNBlbl.MaximumSize = new Size(1250, 0);
+            TTNBlbl.Location = new Point(8, 0);
+            TTNBlbl.Margin = new Padding(4, 0, 4, 0);
+            TTNBlbl.MaximumSize = new Size(1562, 0);
             TTNBlbl.Name = "TTNBlbl";
-            TTNBlbl.Size = new Size(0, 31);
+            TTNBlbl.Size = new Size(0, 38);
             TTNBlbl.TabIndex = 1;
             // 
             // groupBox5
             // 
             groupBox5.Controls.Add(groupBox8);
             groupBox5.Controls.Add(groupBox7);
-            groupBox5.Location = new Point(382, 81);
+            groupBox5.Location = new Point(478, 101);
+            groupBox5.Margin = new Padding(4, 4, 4, 4);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(967, 203);
+            groupBox5.Padding = new Padding(4, 4, 4, 4);
+            groupBox5.Size = new Size(1209, 254);
             groupBox5.TabIndex = 3;
             groupBox5.TabStop = false;
             groupBox5.Text = "CHẨN ĐOÁN";
@@ -584,9 +649,11 @@
             groupBox8.Controls.Add(label21);
             groupBox8.Controls.Add(label22);
             groupBox8.Controls.Add(label23);
-            groupBox8.Location = new Point(484, 26);
+            groupBox8.Location = new Point(605, 32);
+            groupBox8.Margin = new Padding(4, 4, 4, 4);
             groupBox8.Name = "groupBox8";
-            groupBox8.Size = new Size(477, 174);
+            groupBox8.Padding = new Padding(4, 4, 4, 4);
+            groupBox8.Size = new Size(596, 218);
             groupBox8.TabIndex = 1;
             groupBox8.TabStop = false;
             groupBox8.Text = "Chẩn đoán ra viện";
@@ -595,43 +662,48 @@
             // 
             BenhPhuICD2.AutoSize = true;
             BenhPhuICD2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BenhPhuICD2.Location = new Point(139, 147);
+            BenhPhuICD2.Location = new Point(174, 184);
+            BenhPhuICD2.Margin = new Padding(4, 0, 4, 0);
             BenhPhuICD2.Name = "BenhPhuICD2";
-            BenhPhuICD2.Size = new Size(0, 23);
+            BenhPhuICD2.Size = new Size(0, 30);
             BenhPhuICD2.TabIndex = 33;
             // 
             // BenhChinhICD2
             // 
             BenhChinhICD2.AutoSize = true;
             BenhChinhICD2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BenhChinhICD2.Location = new Point(139, 73);
+            BenhChinhICD2.Location = new Point(174, 91);
+            BenhChinhICD2.Margin = new Padding(4, 0, 4, 0);
             BenhChinhICD2.Name = "BenhChinhICD2";
-            BenhChinhICD2.Size = new Size(0, 23);
+            BenhChinhICD2.Size = new Size(0, 30);
             BenhChinhICD2.TabIndex = 32;
             // 
             // BenhPhu2
             // 
             BenhPhu2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BenhPhu2.Location = new Point(139, 100);
+            BenhPhu2.Location = new Point(174, 125);
+            BenhPhu2.Margin = new Padding(4, 0, 4, 0);
             BenhPhu2.Name = "BenhPhu2";
-            BenhPhu2.Size = new Size(329, 46);
+            BenhPhu2.Size = new Size(411, 58);
             BenhPhu2.TabIndex = 31;
             // 
             // BenhChinh2
             // 
             BenhChinh2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BenhChinh2.Location = new Point(139, 25);
+            BenhChinh2.Location = new Point(174, 31);
+            BenhChinh2.Margin = new Padding(4, 0, 4, 0);
             BenhChinh2.Name = "BenhChinh2";
-            BenhChinh2.Size = new Size(329, 46);
+            BenhChinh2.Size = new Size(411, 58);
             BenhChinh2.TabIndex = 30;
             // 
             // label20
             // 
             label20.AutoSize = true;
             label20.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label20.Location = new Point(61, 145);
+            label20.Location = new Point(76, 181);
+            label20.Margin = new Padding(4, 0, 4, 0);
             label20.Name = "label20";
-            label20.Size = new Size(72, 23);
+            label20.Size = new Size(88, 30);
             label20.TabIndex = 29;
             label20.Text = "Mã ICD:";
             // 
@@ -639,9 +711,10 @@
             // 
             label21.AutoSize = true;
             label21.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label21.Location = new Point(2, 102);
+            label21.Location = new Point(2, 128);
+            label21.Margin = new Padding(4, 0, 4, 0);
             label21.Name = "label21";
-            label21.Size = new Size(131, 23);
+            label21.Size = new Size(163, 30);
             label21.TabIndex = 28;
             label21.Text = "Bệnh kèm theo:";
             // 
@@ -649,9 +722,10 @@
             // 
             label22.AutoSize = true;
             label22.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label22.Location = new Point(61, 72);
+            label22.Location = new Point(76, 90);
+            label22.Margin = new Padding(4, 0, 4, 0);
             label22.Name = "label22";
-            label22.Size = new Size(72, 23);
+            label22.Size = new Size(88, 30);
             label22.TabIndex = 27;
             label22.Text = "Mã ICD:";
             // 
@@ -659,9 +733,10 @@
             // 
             label23.AutoSize = true;
             label23.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label23.Location = new Point(33, 24);
+            label23.Location = new Point(41, 30);
+            label23.Margin = new Padding(4, 0, 4, 0);
             label23.Name = "label23";
-            label23.Size = new Size(100, 23);
+            label23.Size = new Size(123, 30);
             label23.TabIndex = 26;
             label23.Text = "Bệnh chính:";
             // 
@@ -675,9 +750,11 @@
             groupBox7.Controls.Add(label17);
             groupBox7.Controls.Add(label16);
             groupBox7.Controls.Add(label15);
-            groupBox7.Location = new Point(6, 26);
+            groupBox7.Location = new Point(8, 32);
+            groupBox7.Margin = new Padding(4, 4, 4, 4);
             groupBox7.Name = "groupBox7";
-            groupBox7.Size = new Size(474, 177);
+            groupBox7.Padding = new Padding(4, 4, 4, 4);
+            groupBox7.Size = new Size(592, 221);
             groupBox7.TabIndex = 0;
             groupBox7.TabStop = false;
             groupBox7.Text = "Chẩn đoán vào viện";
@@ -686,43 +763,48 @@
             // 
             BenhPhuICD1.AutoSize = true;
             BenhPhuICD1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BenhPhuICD1.Location = new Point(143, 144);
+            BenhPhuICD1.Location = new Point(179, 180);
+            BenhPhuICD1.Margin = new Padding(4, 0, 4, 0);
             BenhPhuICD1.Name = "BenhPhuICD1";
-            BenhPhuICD1.Size = new Size(0, 23);
+            BenhPhuICD1.Size = new Size(0, 30);
             BenhPhuICD1.TabIndex = 27;
             // 
             // BenhChinhICD1
             // 
             BenhChinhICD1.AutoSize = true;
             BenhChinhICD1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BenhChinhICD1.Location = new Point(143, 73);
+            BenhChinhICD1.Location = new Point(179, 91);
+            BenhChinhICD1.Margin = new Padding(4, 0, 4, 0);
             BenhChinhICD1.Name = "BenhChinhICD1";
-            BenhChinhICD1.Size = new Size(0, 23);
+            BenhChinhICD1.Size = new Size(0, 30);
             BenhChinhICD1.TabIndex = 26;
             // 
             // BenhPhu1
             // 
             BenhPhu1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BenhPhu1.Location = new Point(143, 99);
+            BenhPhu1.Location = new Point(179, 124);
+            BenhPhu1.Margin = new Padding(4, 0, 4, 0);
             BenhPhu1.Name = "BenhPhu1";
-            BenhPhu1.Size = new Size(329, 46);
+            BenhPhu1.Size = new Size(411, 58);
             BenhPhu1.TabIndex = 25;
             // 
             // BenhChinh1
             // 
             BenhChinh1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            BenhChinh1.Location = new Point(143, 24);
+            BenhChinh1.Location = new Point(179, 30);
+            BenhChinh1.Margin = new Padding(4, 0, 4, 0);
             BenhChinh1.Name = "BenhChinh1";
-            BenhChinh1.Size = new Size(329, 46);
+            BenhChinh1.Size = new Size(411, 58);
             BenhChinh1.TabIndex = 24;
             // 
             // label18
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label18.Location = new Point(65, 144);
+            label18.Location = new Point(81, 180);
+            label18.Margin = new Padding(4, 0, 4, 0);
             label18.Name = "label18";
-            label18.Size = new Size(72, 23);
+            label18.Size = new Size(88, 30);
             label18.TabIndex = 23;
             label18.Text = "Mã ICD:";
             // 
@@ -730,9 +812,10 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label17.Location = new Point(6, 99);
+            label17.Location = new Point(8, 124);
+            label17.Margin = new Padding(4, 0, 4, 0);
             label17.Name = "label17";
-            label17.Size = new Size(131, 23);
+            label17.Size = new Size(163, 30);
             label17.TabIndex = 22;
             label17.Text = "Bệnh kèm theo:";
             // 
@@ -740,9 +823,10 @@
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label16.Location = new Point(65, 71);
+            label16.Location = new Point(81, 89);
+            label16.Margin = new Padding(4, 0, 4, 0);
             label16.Name = "label16";
-            label16.Size = new Size(72, 23);
+            label16.Size = new Size(88, 30);
             label16.TabIndex = 21;
             label16.Text = "Mã ICD:";
             // 
@@ -750,9 +834,10 @@
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label15.Location = new Point(37, 24);
+            label15.Location = new Point(46, 30);
+            label15.Margin = new Padding(4, 0, 4, 0);
             label15.Name = "label15";
-            label15.Size = new Size(100, 23);
+            label15.Size = new Size(123, 30);
             label15.TabIndex = 20;
             label15.Text = "Bệnh chính:";
             // 
@@ -766,9 +851,11 @@
             groupBox2.Controls.Add(label11);
             groupBox2.Controls.Add(label10);
             groupBox2.Controls.Add(label9);
-            groupBox2.Location = new Point(11, 81);
+            groupBox2.Location = new Point(14, 101);
+            groupBox2.Margin = new Padding(4, 4, 4, 4);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(354, 203);
+            groupBox2.Padding = new Padding(4, 4, 4, 4);
+            groupBox2.Size = new Size(442, 254);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "HÀNH CHÍNH";
@@ -776,44 +863,49 @@
             // DayOutlbl
             // 
             DayOutlbl.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            DayOutlbl.Location = new Point(138, 152);
+            DayOutlbl.Location = new Point(172, 190);
+            DayOutlbl.Margin = new Padding(4, 0, 4, 0);
             DayOutlbl.Name = "DayOutlbl";
-            DayOutlbl.Size = new Size(179, 48);
+            DayOutlbl.Size = new Size(224, 60);
             DayOutlbl.TabIndex = 19;
             // 
             // DayInlbl
             // 
             DayInlbl.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            DayInlbl.Location = new Point(138, 97);
+            DayInlbl.Location = new Point(172, 121);
+            DayInlbl.Margin = new Padding(4, 0, 4, 0);
             DayInlbl.Name = "DayInlbl";
-            DayInlbl.Size = new Size(179, 48);
+            DayInlbl.Size = new Size(224, 60);
             DayInlbl.TabIndex = 18;
             // 
             // MaYTeRs
             // 
             MaYTeRs.AutoSize = true;
             MaYTeRs.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MaYTeRs.Location = new Point(138, 61);
+            MaYTeRs.Location = new Point(172, 76);
+            MaYTeRs.Margin = new Padding(4, 0, 4, 0);
             MaYTeRs.Name = "MaYTeRs";
-            MaYTeRs.Size = new Size(0, 23);
+            MaYTeRs.Size = new Size(0, 30);
             MaYTeRs.TabIndex = 17;
             // 
             // SoBenhAnRs
             // 
             SoBenhAnRs.AutoSize = true;
             SoBenhAnRs.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SoBenhAnRs.Location = new Point(138, 26);
+            SoBenhAnRs.Location = new Point(172, 32);
+            SoBenhAnRs.Margin = new Padding(4, 0, 4, 0);
             SoBenhAnRs.Name = "SoBenhAnRs";
-            SoBenhAnRs.Size = new Size(0, 23);
+            SoBenhAnRs.Size = new Size(0, 30);
             SoBenhAnRs.TabIndex = 16;
             // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(18, 152);
+            label12.Location = new Point(22, 190);
+            label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
-            label12.Size = new Size(114, 23);
+            label12.Size = new Size(140, 30);
             label12.TabIndex = 15;
             label12.Text = "Ra viện ngày:";
             // 
@@ -821,9 +913,10 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(9, 97);
+            label11.Location = new Point(11, 121);
+            label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(123, 23);
+            label11.Size = new Size(151, 30);
             label11.TabIndex = 14;
             label11.Text = "Vào viện ngày:";
             // 
@@ -831,18 +924,20 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(59, 61);
+            label10.Location = new Point(74, 76);
+            label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new Size(73, 23);
+            label10.Size = new Size(90, 30);
             label10.TabIndex = 13;
             label10.Text = "Mã y tế:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(11, 40);
+            label5.Location = new Point(14, 50);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(181, 20);
+            label5.Size = new Size(221, 25);
             label5.TabIndex = 1;
             label5.Text = "Chọn số bệnh án cần xem:";
             // 
@@ -851,9 +946,10 @@
             SoBenhAnlst.DropDownStyle = ComboBoxStyle.DropDownList;
             SoBenhAnlst.Enabled = false;
             SoBenhAnlst.FormattingEnabled = true;
-            SoBenhAnlst.Location = new Point(198, 37);
+            SoBenhAnlst.Location = new Point(248, 46);
+            SoBenhAnlst.Margin = new Padding(4, 4, 4, 4);
             SoBenhAnlst.Name = "SoBenhAnlst";
-            SoBenhAnlst.Size = new Size(212, 28);
+            SoBenhAnlst.Size = new Size(264, 33);
             SoBenhAnlst.TabIndex = 0;
             SoBenhAnlst.SelectionChangeCommitted += SoBenhAnlst_SelectionChangeCommitted;
             // 
@@ -862,36 +958,27 @@
             sqlCommand1.CommandTimeout = 30;
             sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
-            // label19
+            // kiểmTraCấuHìnhToolStripMenuItem
             // 
-            label19.AutoSize = true;
-            label19.Location = new Point(732, 43);
-            label19.Name = "label19";
-            label19.Size = new Size(160, 20);
-            label19.TabIndex = 7;
-            label19.Text = "Bác sỹ tóm tắt bệnh án";
-            // 
-            // doctorName
-            // 
-            doctorName.Location = new Point(897, 40);
-            doctorName.Name = "doctorName";
-            doctorName.Size = new Size(225, 27);
-            doctorName.TabIndex = 8;
-            doctorName.Text = "TsBs. Vũ Trung Kiên";
+            kiểmTraCấuHìnhToolStripMenuItem.Name = "kiểmTraCấuHìnhToolStripMenuItem";
+            kiểmTraCấuHìnhToolStripMenuItem.Size = new Size(164, 29);
+            kiểmTraCấuHìnhToolStripMenuItem.Text = "Kiểm tra cấu hình";
+            kiểmTraCấuHìnhToolStripMenuItem.Click += kiểmTraCấuHìnhToolStripMenuItem_Click;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1419, 985);
+            ClientSize = new Size(1769, 1220);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox1);
             Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
-            MaximumSize = new Size(1437, 1032);
+            Margin = new Padding(4, 4, 4, 4);
+            MaximumSize = new Size(1791, 1276);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tóm tắt hồ sơ bệnh án";
@@ -1002,5 +1089,6 @@
         private Label label14;
         private TextBox doctorName;
         private Label label19;
+        private ToolStripMenuItem kiểmTraCấuHìnhToolStripMenuItem;
     }
 }

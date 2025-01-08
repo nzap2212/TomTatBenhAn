@@ -115,7 +115,7 @@ namespace UI
             {
                 userUsage.Text = await HandleLogin.Instance.printUserUsage
                     (
-                    LoginForm.Instance.userName, 
+                    LoginForm.Instance.userName,
                     LoginForm.Instance.userDepartment,
                     LoginForm.Instance.empCode
                     );
@@ -387,6 +387,6 @@ namespace UI
             }
         }
 
-
+        
     }
 }
