@@ -1,6 +1,7 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using RestSharp;
 using System.Net;
+using Services;
 
 
 namespace BUS_.System
@@ -22,6 +23,8 @@ namespace BUS_.System
         }
 
         private GetServerStatus() { }
+
+        public Dictionary<string, string> config = ReadConfigGoogleSheet.Instance.APIConfig;
 
         public bool IsConnected = false;
 
@@ -45,7 +48,7 @@ namespace BUS_.System
                 // Truyền HttpClient vào RestSharp RestClient
                 var test_client = new RestClient(new RestClientOptions
                 {
-                    BaseUrl = new Uri("https://hospital.zigisoft.com/"),
+                    BaseUrl = new Uri($"{config["api_tomtatbenhan"]}api/users/list"),
                     ConfigureMessageHandler = _ => handler // Gắn handler vào RestClient
                 });
 

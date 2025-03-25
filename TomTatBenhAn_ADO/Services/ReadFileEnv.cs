@@ -42,7 +42,6 @@ namespace Services
                 envData.Add("API_KEY_3", Env.GetString("API_KEY_3"));
                 envData.Add("API_URL", Env.GetString("API_URL"));
                 envData.Add("CONNECTION_STRING", Env.GetString("CONNECTION_STRING"));
-                envData.Add("PHAC_DO", Env.GetString("PHAC_DO"));
                 envData.Add("QUERY_SOBENHAN", Env.GetString("QUERY_SOBENHAN"));
                 envData.Add("QUERY_MAYTE", Env.GetString("QUERY_MAYTE"));
                 envData.Add("QUERY_KQXN", Env.GetString("QUERY_KQXN"));
@@ -50,6 +49,8 @@ namespace Services
                 envData.Add("PROMT_PHACDO", Env.GetString("PROMT_PHACDO"));
                 envData.Add("PROMT_KQXN", Env.GetString("PROMT_KQXN"));
                 envData.Add("PROMT_TTNB", Env.GetString("PROMT_TTNB"));
+                envData.Add("DANHSACHPHACDO", Env.GetString("DANHSACHPHACDO"));
+                
             }
             catch (Exception ex) 
             {

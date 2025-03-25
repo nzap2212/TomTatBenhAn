@@ -14,7 +14,7 @@ namespace UI.Forms
 {
     public partial class LoginForm : Form
     {
-        private static LoginForm instance;
+        private static LoginForm? instance;
         public static LoginForm Instance
         {
             get

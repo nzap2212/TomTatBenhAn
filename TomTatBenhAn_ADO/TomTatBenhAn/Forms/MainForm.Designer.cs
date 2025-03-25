@@ -54,7 +54,9 @@
             menuStrip1 = new MenuStrip();
             kiểmTraCậpNhậtToolStripMenuItem = new ToolStripMenuItem();
             kToolStripMenuItem = new ToolStripMenuItem();
+            kiểmTraCấuHìnhToolStripMenuItem = new ToolStripMenuItem();
             groupBox4 = new GroupBox();
+            GoiYPhacDoBtn = new Button();
             doctorName = new TextBox();
             label19 = new Label();
             orderReport = new TextBox();
@@ -103,7 +105,6 @@
             label5 = new Label();
             SoBenhAnlst = new ComboBox();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
-            kiểmTraCấuHìnhToolStripMenuItem = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -131,10 +132,10 @@
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(34, 54);
-            groupBox1.Margin = new Padding(4, 4, 4, 4);
+            groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(4, 4, 4, 4);
-            groupBox1.Size = new Size(671, 241);
+            groupBox1.Padding = new Padding(4);
+            groupBox1.Size = new Size(719, 241);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin người dùng";
@@ -144,7 +145,7 @@
             usage_txb.Enabled = false;
             usage_txb.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             usage_txb.Location = new Point(214, 139);
-            usage_txb.Margin = new Padding(4, 4, 4, 4);
+            usage_txb.Margin = new Padding(4);
             usage_txb.Name = "usage_txb";
             usage_txb.ReadOnly = true;
             usage_txb.Size = new Size(449, 36);
@@ -155,7 +156,7 @@
             department_txb.Enabled = false;
             department_txb.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             department_txb.Location = new Point(214, 86);
-            department_txb.Margin = new Padding(4, 4, 4, 4);
+            department_txb.Margin = new Padding(4);
             department_txb.Name = "department_txb";
             department_txb.ReadOnly = true;
             department_txb.Size = new Size(449, 36);
@@ -166,7 +167,7 @@
             user_txb.Enabled = false;
             user_txb.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             user_txb.Location = new Point(214, 35);
-            user_txb.Margin = new Padding(4, 4, 4, 4);
+            user_txb.Margin = new Padding(4);
             user_txb.Name = "user_txb";
             user_txb.ReadOnly = true;
             user_txb.Size = new Size(449, 36);
@@ -252,10 +253,10 @@
             groupBox3.Controls.Add(MaYTe_input);
             groupBox3.Controls.Add(MaYTe_checkbox);
             groupBox3.Controls.Add(SoBenhAn_checkbox);
-            groupBox3.Location = new Point(738, 54);
-            groupBox3.Margin = new Padding(4, 4, 4, 4);
+            groupBox3.Location = new Point(791, 54);
+            groupBox3.Margin = new Padding(4);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(4, 4, 4, 4);
+            groupBox3.Padding = new Padding(4);
             groupBox3.Size = new Size(991, 241);
             groupBox3.TabIndex = 1;
             groupBox3.TabStop = false;
@@ -264,7 +265,7 @@
             // CCCDtxb
             // 
             CCCDtxb.Location = new Point(622, 181);
-            CCCDtxb.Margin = new Padding(4, 4, 4, 4);
+            CCCDtxb.Margin = new Padding(4);
             CCCDtxb.Name = "CCCDtxb";
             CCCDtxb.Size = new Size(324, 31);
             CCCDtxb.TabIndex = 12;
@@ -282,7 +283,7 @@
             // BN_bhyt
             // 
             BN_bhyt.Location = new Point(622, 114);
-            BN_bhyt.Margin = new Padding(4, 4, 4, 4);
+            BN_bhyt.Margin = new Padding(4);
             BN_bhyt.Name = "BN_bhyt";
             BN_bhyt.ReadOnly = true;
             BN_bhyt.Size = new Size(324, 31);
@@ -291,7 +292,7 @@
             // BN_name
             // 
             BN_name.Location = new Point(622, 44);
-            BN_name.Margin = new Padding(4, 4, 4, 4);
+            BN_name.Margin = new Padding(4);
             BN_name.Name = "BN_name";
             BN_name.ReadOnly = true;
             BN_name.Size = new Size(324, 31);
@@ -320,7 +321,7 @@
             // TomTat_btn
             // 
             TomTat_btn.Location = new Point(21, 172);
-            TomTat_btn.Margin = new Padding(4, 4, 4, 4);
+            TomTat_btn.Margin = new Padding(4);
             TomTat_btn.Name = "TomTat_btn";
             TomTat_btn.Size = new Size(418, 54);
             TomTat_btn.TabIndex = 4;
@@ -332,7 +333,7 @@
             // 
             SoBenhAn_input.Enabled = false;
             SoBenhAn_input.Location = new Point(186, 110);
-            SoBenhAn_input.Margin = new Padding(4, 4, 4, 4);
+            SoBenhAn_input.Margin = new Padding(4);
             SoBenhAn_input.Name = "SoBenhAn_input";
             SoBenhAn_input.Size = new Size(252, 31);
             SoBenhAn_input.TabIndex = 3;
@@ -342,7 +343,7 @@
             // 
             MaYTe_input.Enabled = false;
             MaYTe_input.Location = new Point(186, 46);
-            MaYTe_input.Margin = new Padding(4, 4, 4, 4);
+            MaYTe_input.Margin = new Padding(4);
             MaYTe_input.Name = "MaYTe_input";
             MaYTe_input.Size = new Size(252, 31);
             MaYTe_input.TabIndex = 2;
@@ -352,7 +353,7 @@
             // 
             MaYTe_checkbox.AutoSize = true;
             MaYTe_checkbox.Location = new Point(34, 46);
-            MaYTe_checkbox.Margin = new Padding(4, 4, 4, 4);
+            MaYTe_checkbox.Margin = new Padding(4);
             MaYTe_checkbox.Name = "MaYTe_checkbox";
             MaYTe_checkbox.Size = new Size(101, 29);
             MaYTe_checkbox.TabIndex = 1;
@@ -364,7 +365,7 @@
             // 
             SoBenhAn_checkbox.AutoSize = true;
             SoBenhAn_checkbox.Location = new Point(34, 114);
-            SoBenhAn_checkbox.Margin = new Padding(4, 4, 4, 4);
+            SoBenhAn_checkbox.Margin = new Padding(4);
             SoBenhAn_checkbox.Name = "SoBenhAn_checkbox";
             SoBenhAn_checkbox.Size = new Size(132, 29);
             SoBenhAn_checkbox.TabIndex = 0;
@@ -379,7 +380,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(8, 4, 0, 4);
-            menuStrip1.Size = new Size(1769, 37);
+            menuStrip1.Size = new Size(1828, 37);
             menuStrip1.TabIndex = 3;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -397,8 +398,16 @@
             kToolStripMenuItem.Text = "Kiểm tra kết nối máy chủ";
             kToolStripMenuItem.Click += kToolStripMenuItem_Click;
             // 
+            // kiểmTraCấuHìnhToolStripMenuItem
+            // 
+            kiểmTraCấuHìnhToolStripMenuItem.Name = "kiểmTraCấuHìnhToolStripMenuItem";
+            kiểmTraCấuHìnhToolStripMenuItem.Size = new Size(164, 29);
+            kiểmTraCấuHìnhToolStripMenuItem.Text = "Kiểm tra cấu hình";
+            kiểmTraCấuHìnhToolStripMenuItem.Click += kiểmTraCấuHìnhToolStripMenuItem_Click;
+            // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(GoiYPhacDoBtn);
             groupBox4.Controls.Add(doctorName);
             groupBox4.Controls.Add(label19);
             groupBox4.Controls.Add(orderReport);
@@ -410,20 +419,35 @@
             groupBox4.Controls.Add(label5);
             groupBox4.Controls.Add(SoBenhAnlst);
             groupBox4.Location = new Point(35, 302);
-            groupBox4.Margin = new Padding(4, 4, 4, 4);
+            groupBox4.Margin = new Padding(4);
             groupBox4.Name = "groupBox4";
-            groupBox4.Padding = new Padding(4, 4, 4, 4);
-            groupBox4.Size = new Size(1694, 914);
+            groupBox4.Padding = new Padding(4);
+            groupBox4.Size = new Size(1768, 914);
             groupBox4.TabIndex = 2;
             groupBox4.TabStop = false;
             groupBox4.Text = "Kết quả";
             // 
+            // GoiYPhacDoBtn
+            // 
+            GoiYPhacDoBtn.BackColor = SystemColors.ScrollBar;
+            GoiYPhacDoBtn.Enabled = false;
+            GoiYPhacDoBtn.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            GoiYPhacDoBtn.ForeColor = SystemColors.ControlText;
+            GoiYPhacDoBtn.Location = new Point(1325, 39);
+            GoiYPhacDoBtn.Margin = new Padding(4);
+            GoiYPhacDoBtn.Name = "GoiYPhacDoBtn";
+            GoiYPhacDoBtn.Size = new Size(210, 54);
+            GoiYPhacDoBtn.TabIndex = 9;
+            GoiYPhacDoBtn.Text = "Gợi ý phác đồ";
+            GoiYPhacDoBtn.UseVisualStyleBackColor = false;
+            GoiYPhacDoBtn.Click += GoiYPhacDoBtn_Click;
+            // 
             // doctorName
             // 
             doctorName.Location = new Point(1121, 50);
-            doctorName.Margin = new Padding(4, 4, 4, 4);
+            doctorName.Margin = new Padding(4);
             doctorName.Name = "doctorName";
-            doctorName.Size = new Size(280, 31);
+            doctorName.Size = new Size(196, 31);
             doctorName.TabIndex = 8;
             doctorName.Text = "TsBs. Vũ Trung Kiên";
             // 
@@ -440,7 +464,7 @@
             // orderReport
             // 
             orderReport.Location = new Point(709, 49);
-            orderReport.Margin = new Padding(4, 4, 4, 4);
+            orderReport.Margin = new Padding(4);
             orderReport.Name = "orderReport";
             orderReport.Size = new Size(198, 31);
             orderReport.TabIndex = 6;
@@ -462,12 +486,12 @@
             editReportBtn.Enabled = false;
             editReportBtn.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             editReportBtn.ForeColor = SystemColors.ControlText;
-            editReportBtn.Location = new Point(1411, 39);
-            editReportBtn.Margin = new Padding(4, 4, 4, 4);
+            editReportBtn.Location = new Point(1543, 39);
+            editReportBtn.Margin = new Padding(4);
             editReportBtn.Name = "editReportBtn";
-            editReportBtn.Size = new Size(254, 54);
+            editReportBtn.Size = new Size(209, 54);
             editReportBtn.TabIndex = 3;
-            editReportBtn.Text = "Chỉnh sửa bản tóm tắt";
+            editReportBtn.Text = "Chỉnh sửa tóm tắt";
             editReportBtn.UseVisualStyleBackColor = false;
             editReportBtn.Click += editReportBtn_Click;
             // 
@@ -475,10 +499,10 @@
             // 
             groupBox6.Controls.Add(tabControl1);
             groupBox6.Location = new Point(14, 362);
-            groupBox6.Margin = new Padding(4, 4, 4, 4);
+            groupBox6.Margin = new Padding(4);
             groupBox6.Name = "groupBox6";
-            groupBox6.Padding = new Padding(4, 4, 4, 4);
-            groupBox6.Size = new Size(1672, 544);
+            groupBox6.Padding = new Padding(4);
+            groupBox6.Size = new Size(1726, 544);
             groupBox6.TabIndex = 4;
             groupBox6.TabStop = false;
             groupBox6.Text = "TÓM TẮT QUÁ TRÌNH ĐIỀU TRỊ";
@@ -490,10 +514,10 @@
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Location = new Point(11, 28);
-            tabControl1.Margin = new Padding(4, 4, 4, 4);
+            tabControl1.Margin = new Padding(4);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1658, 509);
+            tabControl1.Size = new Size(1722, 509);
             tabControl1.TabIndex = 0;
             // 
             // tab1
@@ -504,10 +528,10 @@
             tab1.Controls.Add(Lydovaovienlbl);
             tab1.Controls.Add(label13);
             tab1.Location = new Point(4, 34);
-            tab1.Margin = new Padding(4, 4, 4, 4);
+            tab1.Margin = new Padding(4);
             tab1.Name = "tab1";
-            tab1.Padding = new Padding(4, 4, 4, 4);
-            tab1.Size = new Size(1650, 471);
+            tab1.Padding = new Padding(4);
+            tab1.Size = new Size(1714, 471);
             tab1.TabIndex = 0;
             tab1.Text = "a. Quá trình bệnh lí và diễn biến lâm sàng";
             tab1.UseVisualStyleBackColor = true;
@@ -561,10 +585,10 @@
             tabPage2.AutoScroll = true;
             tabPage2.Controls.Add(KQXNlbl);
             tabPage2.Location = new Point(4, 34);
-            tabPage2.Margin = new Padding(4, 4, 4, 4);
+            tabPage2.Margin = new Padding(4);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(4, 4, 4, 4);
-            tabPage2.Size = new Size(1650, 471);
+            tabPage2.Padding = new Padding(4);
+            tabPage2.Size = new Size(1714, 471);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "b. Tóm tắt kết quả xét nghiệm cận lâm sàng có giá trị chẩn đoán";
             tabPage2.UseVisualStyleBackColor = true;
@@ -584,10 +608,10 @@
             // 
             tabPage3.Controls.Add(ppDieuTrilbl);
             tabPage3.Location = new Point(4, 34);
-            tabPage3.Margin = new Padding(4, 4, 4, 4);
+            tabPage3.Margin = new Padding(4);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(4, 4, 4, 4);
-            tabPage3.Size = new Size(1650, 471);
+            tabPage3.Padding = new Padding(4);
+            tabPage3.Size = new Size(1714, 471);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "c. Phương pháp điều trị";
             tabPage3.UseVisualStyleBackColor = true;
@@ -607,10 +631,10 @@
             tabPage4.AutoScroll = true;
             tabPage4.Controls.Add(TTNBlbl);
             tabPage4.Location = new Point(4, 34);
-            tabPage4.Margin = new Padding(4, 4, 4, 4);
+            tabPage4.Margin = new Padding(4);
             tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(4, 4, 4, 4);
-            tabPage4.Size = new Size(1650, 471);
+            tabPage4.Padding = new Padding(4);
+            tabPage4.Size = new Size(1714, 471);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "d. Tình trạng người bệnh ra viện";
             tabPage4.UseVisualStyleBackColor = true;
@@ -631,10 +655,10 @@
             groupBox5.Controls.Add(groupBox8);
             groupBox5.Controls.Add(groupBox7);
             groupBox5.Location = new Point(478, 101);
-            groupBox5.Margin = new Padding(4, 4, 4, 4);
+            groupBox5.Margin = new Padding(4);
             groupBox5.Name = "groupBox5";
-            groupBox5.Padding = new Padding(4, 4, 4, 4);
-            groupBox5.Size = new Size(1209, 254);
+            groupBox5.Padding = new Padding(4);
+            groupBox5.Size = new Size(1274, 254);
             groupBox5.TabIndex = 3;
             groupBox5.TabStop = false;
             groupBox5.Text = "CHẨN ĐOÁN";
@@ -650,9 +674,9 @@
             groupBox8.Controls.Add(label22);
             groupBox8.Controls.Add(label23);
             groupBox8.Location = new Point(605, 32);
-            groupBox8.Margin = new Padding(4, 4, 4, 4);
+            groupBox8.Margin = new Padding(4);
             groupBox8.Name = "groupBox8";
-            groupBox8.Padding = new Padding(4, 4, 4, 4);
+            groupBox8.Padding = new Padding(4);
             groupBox8.Size = new Size(596, 218);
             groupBox8.TabIndex = 1;
             groupBox8.TabStop = false;
@@ -751,9 +775,9 @@
             groupBox7.Controls.Add(label16);
             groupBox7.Controls.Add(label15);
             groupBox7.Location = new Point(8, 32);
-            groupBox7.Margin = new Padding(4, 4, 4, 4);
+            groupBox7.Margin = new Padding(4);
             groupBox7.Name = "groupBox7";
-            groupBox7.Padding = new Padding(4, 4, 4, 4);
+            groupBox7.Padding = new Padding(4);
             groupBox7.Size = new Size(592, 221);
             groupBox7.TabIndex = 0;
             groupBox7.TabStop = false;
@@ -852,9 +876,9 @@
             groupBox2.Controls.Add(label10);
             groupBox2.Controls.Add(label9);
             groupBox2.Location = new Point(14, 101);
-            groupBox2.Margin = new Padding(4, 4, 4, 4);
+            groupBox2.Margin = new Padding(4);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(4, 4, 4, 4);
+            groupBox2.Padding = new Padding(4);
             groupBox2.Size = new Size(442, 254);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
@@ -947,7 +971,7 @@
             SoBenhAnlst.Enabled = false;
             SoBenhAnlst.FormattingEnabled = true;
             SoBenhAnlst.Location = new Point(248, 46);
-            SoBenhAnlst.Margin = new Padding(4, 4, 4, 4);
+            SoBenhAnlst.Margin = new Padding(4);
             SoBenhAnlst.Name = "SoBenhAnlst";
             SoBenhAnlst.Size = new Size(264, 33);
             SoBenhAnlst.TabIndex = 0;
@@ -958,27 +982,20 @@
             sqlCommand1.CommandTimeout = 30;
             sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
-            // kiểmTraCấuHìnhToolStripMenuItem
-            // 
-            kiểmTraCấuHìnhToolStripMenuItem.Name = "kiểmTraCấuHìnhToolStripMenuItem";
-            kiểmTraCấuHìnhToolStripMenuItem.Size = new Size(164, 29);
-            kiểmTraCấuHìnhToolStripMenuItem.Text = "Kiểm tra cấu hình";
-            kiểmTraCấuHìnhToolStripMenuItem.Click += kiểmTraCấuHìnhToolStripMenuItem_Click;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1769, 1220);
+            ClientSize = new Size(1828, 1220);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox1);
             Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(4, 4, 4, 4);
-            MaximumSize = new Size(1791, 1276);
+            Margin = new Padding(4);
+            MaximumSize = new Size(1850, 1276);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tóm tắt hồ sơ bệnh án";
@@ -1090,5 +1107,6 @@
         private TextBox doctorName;
         private Label label19;
         private ToolStripMenuItem kiểmTraCấuHìnhToolStripMenuItem;
+        private Button GoiYPhacDoBtn;
     }
 }

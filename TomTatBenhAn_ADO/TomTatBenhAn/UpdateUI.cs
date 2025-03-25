@@ -12,7 +12,8 @@ namespace UI
 {
     public class UpdateUI
     {
-        private static UpdateUI instance;
+        // singleton 
+        private static UpdateUI? instance;
         public static UpdateUI Instance
         {
             get
@@ -387,6 +388,10 @@ namespace UI
             }
         }
 
-        
+        // Hàm in thông tin gợi ý phác đồ
+        public async Task PrintGoiYPhacDo(RichTextBox result)
+        {
+            result.Text = await AskAIa.Instance.GoiYPhacDo(AllData);
+        }
     }
 }

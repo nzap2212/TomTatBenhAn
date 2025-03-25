@@ -3,19 +3,13 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using Services;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS_.MainLogic
 {
     public class AskAIa
     {
-        private static AskAIa instance;
-        public static AskAIa Instance 
+        private static AskAIa? instance;
+        public static AskAIa Instance
         {
             get
             {
@@ -29,7 +23,7 @@ namespace BUS_.MainLogic
 
         private AskAIa() { }
 
-        private Dictionary<string,string> envData = ReadFileEnv.Instance.envData;
+        private Dictionary<string, string> envData = ReadFileEnv.Instance.envData;
 
         //Hàm tóm tắt quá trình bệnh lý và dấu hiệu lâm sàng
         public async Task<string> TomTatBenhLy(string data)
@@ -125,7 +119,7 @@ namespace BUS_.MainLogic
                     return "Bệnh nhân chưa sử dụng dịch vụ xét nghiệm nào";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new AskAiErr("Lỗi tại hàm tóm tắt kết quả xét nghiệm: " + ex.Message);
             }
@@ -176,6 +170,49 @@ namespace BUS_.MainLogic
                 throw new AskAiErr("Lỗi tại hàm Tóm Tắt: " + ex.Message);
             }
 
+        }
+
+        //Hàm gợi ý phác đồ điều trị
+        public async Task<string> GoiYPhacDo(Dictionary<string, string> allData)
+        {
+            try
+            {
+                string benhnhanInfor = $"Quá trình bệnh lý: {allData["BN_TomTatQuaTrinhBenhLy"]}; Dấu hiệu lâm sàng: {allData["BN_DauHieuLamSang"]}; Tình trạng người bệnh ra viện: {allData["BN_TTNguoiBenhRaVien"]}";
+                string question = envData["PROMT_PHACDO"].Replace("@ThongTinKhamBenh", benhnhanInfor) + "\n" + envData["DANHSACHPHACDO"];
+                var requestData = new
+                {
+                    contents = new[] {
+                    new {
+                        parts = new[] {
+                            new {
+                                text = question
+                            }
+                        }
+                    }
+                }
+                };
+                // gửi request đi
+                var client = new RestClient(envData["API_URL"] + envData["API_KEY_3"]);
+                var request = new RestRequest("", Method.Post);
+                request.AddHeader("Content-Type", "application/json");
+                request.AddJsonBody(requestData);
+
+                RestResponse response = await client.ExecuteAsync(request);
+                if (response.IsSuccessful)
+                {
+                    var jsonResponse = JObject.Parse(response.Content);
+                    var result_text = jsonResponse["candidates"][0]["content"]["parts"][0]["text"].ToString();
+                    return result_text;
+                }
+                else
+                {
+                    throw new AskAiErr("Lỗi khi gợi ý phác đồ");
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new AskAiErr("Lỗi tại hàm Tóm Tắt: " + ex.Message);
+            }
         }
     }
 }

@@ -1,10 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using RestSharp;
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Net;
-using System.Threading.Tasks;
+using Services;
 
 namespace BUS_.MainLogic
 {
@@ -25,8 +21,10 @@ namespace BUS_.MainLogic
 
         private CheckUpdate() { }
 
+        public Dictionary<string, string> _Config = ReadConfigGoogleSheet.Instance.APIConfig;
+        
         // Hàm check update
-        public async Task<string> CheckForUpdate(string crVersion, string Url = "http://api-hospital.zigisoft.com/api/version/check")
+        public async Task<string> CheckForUpdate(string crVersion)
         {
             try
             {
@@ -35,7 +33,7 @@ namespace BUS_.MainLogic
                     currentVersion = crVersion,
                 };
 
-                var client = new RestClient(Url);
+                var client = new RestClient($"{_Config["api_tomtatbenhan"]}api/version/check");
                 var request = new RestRequest("", Method.Post);
                 request.AddHeader("Content-Type", "application/json");
                 request.AddJsonBody(requestData);

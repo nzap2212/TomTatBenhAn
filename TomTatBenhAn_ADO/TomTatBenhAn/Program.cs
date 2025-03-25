@@ -1,5 +1,6 @@
 using UI.Forms;
 using Services;
+using System.Runtime.CompilerServices;
 
 namespace UI
 {
@@ -9,9 +10,10 @@ namespace UI
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static async Task Main()
         {
             ApplicationConfiguration.Initialize();
+            await ReadConfigGoogleSheet.Instance.GetConfig();
             Application.Run(LoginForm.Instance);
         }
     }

@@ -42,6 +42,7 @@ namespace UI
 
         private LoginForm loginForm;
 
+
         #region Các hàm sử lý UI chỉ để người dùng chọn số bệnh án hoặc mã y tế
         // Hàm check Mã y tế đầu vào
         private void MaYTe_checkbox_CheckedChanged(object sender, EventArgs e)
@@ -121,6 +122,7 @@ namespace UI
                     TienSuBenhlbl.Text = string.Empty;
                     ppDieuTrilbl.Text = string.Empty;
                     SoBenhAnlst.Enabled = false;
+                    editReportBtn.Enabled = false;
                     using (WaitForm waitform = WaitForm.Instance)
                     {
                         try
@@ -143,6 +145,7 @@ namespace UI
                                 await UpdateUI.Instance.PrintUserData(user_txb, department_txb, usage_txb);
                             }
                             editReportBtn.Enabled = true;
+                            GoiYPhacDoBtn.Enabled = true;
                             waitform.Close();
                         }
                         catch (Exception ex)
@@ -207,6 +210,7 @@ namespace UI
                         await UpdateUI.Instance.PrintUserData(user_txb, department_txb, usage_txb);
                     }
                     editReportBtn.Enabled = true;
+                    GoiYPhacDoBtn.Enabled = true;
                     waitform.Close();
                 }
                 catch (Exception ex)
@@ -247,7 +251,6 @@ namespace UI
 
         #region Hàm kiểm tra thông tin phiên bản ứng dụng
         //Hàm kiểm tra thông tin cập nhật và tiến hành cập nhật ứng dụng
-        private string UpdateURL = "http://api-hospital.zigisoft.com/api/version/check";
         private async void kiểmTraCậpNhậtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var waitForm = WaitForm.Instance; // Lấy instance
@@ -260,7 +263,7 @@ namespace UI
                 string currentVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
                 // Kiểm tra cập nhật
-                string updateUrl = await CheckUpdate.Instance.CheckForUpdate(currentVersion, UpdateURL);
+                string updateUrl = await CheckUpdate.Instance.CheckForUpdate(currentVersion);
 
                 waitForm.CloseForm(); // Ẩn form sau khi hoàn thành kiểm tra
 
@@ -321,6 +324,18 @@ namespace UI
         {
             string config = ReadFileEnv.Instance.envData["API_KEY_1"] + "\n" + ReadFileEnv.Instance.envData["API_KEY_2"] + "\n" + ReadFileEnv.Instance.envData["API_KEY_3"] + "\n";
             MessageBox.Show(config);
+        }
+
+        private async void GoiYPhacDoBtn_Click(object sender, EventArgs e)
+        {
+            using (WaitForm waitForm = WaitForm.Instance)
+            {
+                PhacDoForm phacDoForm = new PhacDoForm();
+                waitForm.Show();
+                await UpdateUI.Instance.PrintGoiYPhacDo(phacDoForm.phacdo_result);
+                waitForm.Close();
+                phacDoForm.Show();
+            }
         }
     }
 }

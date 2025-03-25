@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "DTO\DTO.csproj", "{2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{C856118B-086A-4194-8628-7D0310A3479A}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer_TTBA", "..\Installer\Installer_TTBA\Installer_TTBA.vdproj", "{FE5118AB-51EA-49BD-ACC8-88D84B33F5E4}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupApp", "SetupApp\SetupApp.vdproj", "{D4249AC0-ABB2-4A14-9E86-917082B71B44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,8 @@ Global
 		{C856118B-086A-4194-8628-7D0310A3479A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C856118B-086A-4194-8628-7D0310A3479A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C856118B-086A-4194-8628-7D0310A3479A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE5118AB-51EA-49BD-ACC8-88D84B33F5E4}.Debug|Any CPU.ActiveCfg = Debug
-		{FE5118AB-51EA-49BD-ACC8-88D84B33F5E4}.Debug|Any CPU.Build.0 = Debug
-		{FE5118AB-51EA-49BD-ACC8-88D84B33F5E4}.Release|Any CPU.ActiveCfg = Release
-		{FE5118AB-51EA-49BD-ACC8-88D84B33F5E4}.Release|Any CPU.Build.0 = Release
+		{D4249AC0-ABB2-4A14-9E86-917082B71B44}.Debug|Any CPU.ActiveCfg = Debug
+		{D4249AC0-ABB2-4A14-9E86-917082B71B44}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

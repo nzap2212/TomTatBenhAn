@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Services;
 using Newtonsoft.Json;
 using RestSharp;
 
@@ -24,6 +19,7 @@ namespace BUS_.MainLogic
             }
         }
 
+        Dictionary<string, string> Config = ReadConfigGoogleSheet.Instance.APIConfig;
         private HandleLogin() { }
 
         // Hàm in thông tin người dùng
@@ -40,7 +36,7 @@ namespace BUS_.MainLogic
                         employeeCode = empCode.ToUpper()
                     };
                     string json = JsonConvert.SerializeObject(requestData);
-                    var client = new RestClient("http://api-hospital.zigisoft.com/api/users/add");
+                    var client = new RestClient($"{Config["api_tomtatbenhan"]}api/users/add");
                     var request = new RestRequest("", Method.Post);
                     request.AddHeader("Content-Type", "application/json");
                     request.AddJsonBody(json);
@@ -73,7 +69,7 @@ namespace BUS_.MainLogic
                         employeeCode = empCode.ToUpper()
                     };
                     string json = JsonConvert.SerializeObject(requestData);
-                    var client = new RestClient("http://api-hospital.zigisoft.com/api/users/list");
+                    var client = new RestClient($"{Config["api_tomtatbenhan"]}api/users/list");
                     var request = new RestRequest("", Method.Get);
                     request.AddHeader("Content-Type", "application/json");
                     request.AddJsonBody(json);

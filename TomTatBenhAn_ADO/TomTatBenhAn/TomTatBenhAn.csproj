@@ -9,8 +9,8 @@
 		<ApplicationIcon>faviconw.ico</ApplicationIcon>
 		<PlatformTarget>x86</PlatformTarget>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
-		<AssemblyVersion>1.0.1.0</AssemblyVersion>
-		<FileVersion>1.0.1.0</FileVersion>
+		<AssemblyVersion>1.2.0.0</AssemblyVersion>
+		<FileVersion>1.1.0.0</FileVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -19,7 +19,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Content Include="faviconw.ico" />
+	  <Content Include="faviconw.ico">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
 	  <Content Include="TemplateTomTat.doc">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
