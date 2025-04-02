@@ -16,6 +16,7 @@
 	<ItemGroup>
 	  <None Remove="app.manifest" />
 	  <None Remove="TemplateTomTat.doc" />
+	  <None Remove="TomTatBenhAn.csproj.Backup.tmp" />
 	</ItemGroup>
 
 	<ItemGroup>
